@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		
 		<link rel="stylesheet" href="bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="bootflat/css/bootflat.css">
+        <link rel="stylesheet" href="bootflat/css/bootflat.min.css">
         <link rel="stylesheet" href="main.css">
 		
 		<!-- Bootstrap -->
@@ -31,18 +31,20 @@
 		<script src="js/loaders/MTLLoader.js"></script>
 		<script src="js/loaders/OBJMTLLoader.js"></script>
 		
-		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/controls/OrbitCustomControls.js"></script>
 
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
 		
 		<script src="js/Mirror.js"></script>
 		
-		<script src="main.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/sole/tween.js/master/build/tween.min.js"></script>
 		
+		<script src="gui.js"></script>
+		<script src="main.js"></script>
 
 		<div id="ui">
-			<nav id="main-nav" class="navbar navbar-default" role="navigation">
+			<nav id="main-nav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
                   <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -52,15 +54,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#">Bootflat</a>
+                      <a class="navbar-brand" href="#"><img src="imgs/icons/mglass.png"><span>Menu</span></a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link</a></li>
                         <!-- <li class="disabled"><a href="#">Link</a></li> -->
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list dropdown-toggle-icon"></span><span>Technique</span> <b class="caret"></b></a>
                           <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">Setting</li>
                             <li><a href="#">Action</a></li>
@@ -72,16 +73,77 @@
                             <li class="disabled"><a href="#">One more separated link</a></li>
                           </ul>
                         </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list dropdown-toggle-icon"></span>Historique <b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li class="disabled"><a href="#">One more separated link</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list dropdown-toggle-icon"></span>Beaux-Arts <b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a id="view-one-btn" role="button">View One</a></li>
+                            <li><a id="view-two-btn" role="button">View Two</a></li>
+                            <li><a id="view-three-btn" role="button">View Three</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list dropdown-toggle-icon"></span>Éléments représentés<b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li class="disabled"><a href="#">One more separated link</a></li>
+                          </ul>
+                        </li>
                       </ul>
-                      <form class="navbar-form navbar-right" role="search">
-                        <div class="form-search search-only">
-                          <i class="search-icon glyphicon glyphicon-search"></i>
-                          <input type="text" class="form-control search-query">
-                        </div>
-                      </form>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
                 </nav>
+			<div id="main-panel" class="panel panel-custom">
+			  <div class="panel-heading">
+				<h3 class="panel-title">
+				<div class="btn-group navbar-right">
+					<a id="folder-toggle-btn" class="btn btn-default btn-lg" role="button">
+						<span class="glyphicon glyphicon-chevron-up"></span>
+					</a>
+					<a id="close-btn" class="btn btn-default btn-lg "role="button">
+						<span class="glyphicon glyphicon-remove"></span>
+					</a>
+				</div>
+				<div class="panel-title-text-container"><span class="panel-title-text">fiche</br>technique</span></div>
+				</h3>
+			  </div>
+			  <div class="panel-body">
+				<h1>Glossaire</h1>
+				<div class="col-md-4">
+					<p><span style="color:#42ABED">A </span><a href="#">Sommier</a></p>
+					<p><span style="color:#42ABED">B </span>Sommier</p>
+					<p><span style="color:#42ABED">C </span>Sommier</p>
+					<p><span style="color:#42ABED">D </span>Sommier</p>
+					<p><span style="color:#42ABED">E </span>Sommier</p>
+				</div>
+				<div class="col-md-4">
+					<p><span style="color:#42ABED">F </span>Sommier</p>
+					<p><span style="color:#42ABED">G </span>Sommier</p>
+					<p><span style="color:#42ABED">H </span>Sommier</p>
+					<p><span style="color:#42ABED">I </span>Sommier</p>
+					<p><span style="color:#42ABED">J </span>Sommier</p>
+				</div>
+				<div class="col-md-4">
+					<p><span style="color:#42ABED">K </span>Sommier</p>
+					<p><span style="color:#42ABED">L </span>Sommier</p>
+					<p><span style="color:#42ABED">M </span>Sommier</p>
+					<p><span style="color:#42ABED">N </span>Sommier</p>
+					<p><span style="color:#42ABED">0 </span>Sommier</p>
+				</div>
+			  </div>
+			</div>
+			<div id="model-controls">
+				<div class="btn-group-vertical">
+					  <a id="zoom-in-btn" type="button" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-plus"></i></a>
+					  <button id="move-btn" type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-move"></i></button>
+					  <button id="rotate-btn" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-repeat"></i></button>
+					  <a id="zoom-out-btn" type="button" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-minus"></i></a>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

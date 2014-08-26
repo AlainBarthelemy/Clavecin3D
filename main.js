@@ -17,7 +17,13 @@ var container, stats;
 
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
+			
+			var ClavecinText,ClavecinVol,ClavecinWF;
 
+			var gui = new GUI();
+			addGUIEventListeners();
+
+			
 
 			init();
 			animate();
@@ -41,11 +47,15 @@ var container, stats;
 				// CAMERA
 				camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 				camera.position.set( 0, 60, 60 );
+				
+				// CAMERA CONTROLS
 
-				cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
+				cameraControls = new THREE.OrbitCustomControls(camera, renderer.domElement);
 				cameraControls.target.set( 0, 0, 0);
-				cameraControls.maxDistance = 60;
+				cameraControls.maxDistance = 60;//60
 				cameraControls.minDistance = 1;
+				cameraControls.noKeys = true;
+				cameraControls.autoRotate = false;
 				cameraControls.update();
 				
 				// SCENE
@@ -64,13 +74,13 @@ var container, stats;
 				textureSquares.magFilter = THREE.NearestFilter;
 				textureSquares.format = THREE.RGBFormat;
 
-				var groundMaterial = new THREE.MeshPhongMaterial( { shininess: 20, ambient: 0x000000, color: 0xffffff, specular: 0x000000, map: textureSquares } );
+				var groundMaterial = new THREE.MeshPhongMaterial( { shininess: 0, ambient: 0x000000, color: 0x883333, specular: 0x000000, map: textureSquares } );
 				var planeGeometry = new THREE.PlaneGeometry( 100, 100 );
 				var ground = new THREE.Mesh( planeGeometry, groundMaterial );
 				ground.position.set( 0, 0, 0);
 				ground.rotation.x = - Math.PI / 2;
 				ground.scale.set( 1000, 1000, 1000 );
-				ground.receiveShadow = true;
+				//ground.receiveShadow = true;
 				scene.add( ground );
 				
 				// MIRROR
@@ -88,30 +98,56 @@ var container, stats;
 				THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
 				var loader = new THREE.OBJMTLLoader();
-				var clavecin;
 				loader.load( 'obj/clavecin/untitled.obj', 'obj/clavecin/untitled.mtl', function ( object ) {
 					
 
-					//textured model
+					//textured / main model
 					object.position.set(0,5,0);
-					//object.castShaddow = true;
 					scene.add( object );
 					
-					//wireframe material
-					var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0xAAAAAA,wireframe:true } );
+					//wireframe model
+					var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x42ABED,wireframe:true } );
+					var wfObject = new THREE.Object3D();
+					wfObject.position.set(0,5,0);
+					scene.add(wfObject);
 					
+					//volumetric model
+					var volMaterial = new THREE.MeshPhongMaterial( { ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0x333333, shininess: 0});
+					var volObject = new THREE.Object3D();
+					volObject.position.set(0,5,0);
+					scene.add(volObject);
 					
 
 					object.children[0].children.forEach(function(child){
-						//var mesh = new THREE.Mesh( child.geometry, wireframeMaterial );
-						//object.add( mesh );
-						//child.material = shinyMaterial;
-						child.material.shininess = 20;
+
+						// create vol model from child geometry 
+						var volMesh = new THREE.Mesh(child.geometry, volMaterial);
+						volObject.add( volMesh );	
+							
+						// create wf model from child geometry 
+						var wfMesh = new THREE.Mesh( child.geometry, wireframeMaterial );
+						wfObject.add( wfMesh );
+						
+						
+						// little adjustments for texture material
+						child.material.shininess = 100;
+						child.material.emissive = new THREE.Color(0x666666);
 					});
-					clavecin = object;
+					
+					
+					// to access objects outside of this callback
+					ClavecinText = object;
+					ClavecinVol = volObject;
+					ClavecinWF = wfObject;
+					
+					ClavecinText.visible = true;
+					ClavecinVol.visible = false;
+					ClavecinWF.visible = false;
 
 
 				} );
+				
+
 				
 				// LIGHTS
 				var ambient = new THREE.AmbientLight( 0x444444);
@@ -119,23 +155,29 @@ var container, stats;
 				
 				var sphere = new THREE.SphereGeometry( 0.5, 16, 8 );
 
-				var light1 = new THREE.PointLight( 0xFFFFFF,0.9,30);
-				light1.position.set( 0, 0, 0 );
+				var light1 = new THREE.PointLight( 0xFFFFFF,0.9,90);
+				light1.position.set( 0, 20, -20 );
 				light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
 				scene.add( light1 );
-				var light2 = new THREE.PointLight( 0xFFFFFF,0.8,80);
-				light2.position.set( -20, 20, 0 );
+				var light2 = new THREE.PointLight( 0xFFFFFF,0.8,90);
+				light2.position.set( -20, 20, 20 );
 				light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
 				scene.add( light2 );
-				var light3 = new THREE.PointLight( 0xFFFFFF,0.8,80 );
-				light3.position.set( 20, 20, 0 );
+				var light3 = new THREE.PointLight( 0xFFFFFF,0.8,90 );
+				light3.position.set( 20, 20, 20 );
 				light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
 				light3.castShaddow = true;
 				scene.add( light3 );
 				
-				var directionalLight = new THREE.DirectionalLight( 0xffffEE, 0.04 );
+				/*areaLight1 = new THREE.AreaLight( 0xffffff, 1 );
+				areaLight1.position.set( 0.0001, 10.0001, -18.5001 );
+				areaLight1.rotation.set( -0.74719, 0.0001, 0.0001 );
+				areaLight1.width = 10;
+				areaLight1.height = 1;*/
+				
+				/*var directionalLight = new THREE.DirectionalLight( 0xffffEE, 0.04 );
 				directionalLight.position.set( 50, 10, 0 );
-				scene.add( directionalLight );
+				scene.add( directionalLight );*/
 			
 
 				window.addEventListener( 'resize', onWindowResize, false );
@@ -187,5 +229,48 @@ var container, stats;
 					break;
 				}
 		
+			}
+			
+			function addGUIEventListeners(){
+				
+				document.addEventListener(gui.events.zoomIn,function(event){
+						cameraControls.dollyOut();
+				});	
+				document.addEventListener(gui.events.zoomOut,function(event){
+						cameraControls.dollyIn();
+				});	
+				document.addEventListener(gui.events.setRotateMode,function(event){
+						cameraControls.mode = cameraControls.MODE.ROTATE;
+				});	
+				document.addEventListener(gui.events.setPanMode,function(event){
+						cameraControls.mode = cameraControls.MODE.PAN;
+				});	
+				document.addEventListener(gui.events.viewOne,function(event){
+					var tween = new TWEEN.Tween(camera.position).to({
+						x: 60,
+						y: 60,
+						z: 0
+					}).easing(TWEEN.Easing.Linear.None).onUpdate(function () {
+						camera.lookAt(camera.target);
+					}).onComplete(function () {
+						//camera.lookAt(selectedObject.position);
+					}).start();
+					
+					/*var tween = new TWEEN.Tween(camera.target).to({
+						x: selectedObject.position.x,
+						y: selectedObject.position.y,
+						z: 0
+					}).easing(TWEEN.Easing.Linear.None).onUpdate(function () {
+					}).onComplete(function () {
+						camera.lookAt(selectedObject.position);
+					}).start();*/
+				});	
+				document.addEventListener(gui.events.viewTwo,function(event){
+						console.log("V2");
+				});	
+				document.addEventListener(gui.events.viewThree,function(event){
+						console.log("V3");
+				});	
+				
 			}
 

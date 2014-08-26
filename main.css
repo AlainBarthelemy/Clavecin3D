@@ -2,27 +2,119 @@ body{
 	margin: 0px;
 	padding:0px;
 	overflow: hidden;
+	background-color: #9C9C9C;
 }
-
 #ui{
 	position:fixed;
 	top:0;
 	left:0;	
+	/*visibility: hidden;*/
 }
+
 #main-nav{
-	position:fixed;
-	margin:0;
-	bottom:0;
-	width:100%;
 	height:140px;
-		
+	line-height: 140px;
 }
 
 .navbar{
-	border-radius: 0;	
+	border : none;
+	background-color: white;
 }
 .navbar-default{
+		
+}
+.navbar-nav{
+   /* line-height: 140px;*/
+   margin-top: 45px; /*140/2 - 25*/
+}
 
+.navbar-default .navbar-brand{
+	color:#42ABED;
+	font-size:80px;	
+	margin-right: 120px;
+	
+}
+.navbar-default .navbar-nav li{
+	margin-right:20px;	
+}
+
+.navbar-default .navbar-nav li a{
+   color: #42ABED;
+   background-color: white;
+   border: 2px solid #42ABED;
+}
+.navbar-default .navbar-nav li a:hover{
+	color:#42ABED;
+}
+.navbar-default .navbar-nav li a:active{
+	color: white;
+    background-color: #42ABED ;	
+}
+/* dropdowns */
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus , .navbar-default .navbar-nav>.open>a:hover ,.navbar-default .navbar-nav>.open>a:active{
+   color: white;
+   background-color: #42ABED ;
+}
+.dropdown-menu{
+	background-color: transparent;	
+}
+.dropdown-toggle-icon{
+	margin-right:20px;	
+}
+
+/* panels */
+#main-panel{
+	position:absolute;
+	top:100px;
+	left:100px;	
+}
+
+.panel-custom{
+	width:400px;
+	border-width: 0;
+	border-radius: 0;
+}
+.panel-custom .panel-heading {
+	background-color: white;
+	border-radius:0;
+}
+.panel-title{
+	font-size: 32px;
+	font-weight: bold;	
+}
+.panel-title-text-container{
+	padding-top: 30px;
+}
+.panel-title-text{
+	color:white;
+	background-color: black;	
+	margin-top:30px;
+}
+.panel-custom .panel-body {
+}
+.panel-custom .panel-body h1{
+	font-size: 30px;
+	color:white;
 	background-color: #42ABED;
-	border-color: #42ABED;	
+	padding: 5px 10px;
+	margin-top:5px;
+}
+.panel-custom .btn-default{
+	border:none;
+	/*border-radius: 0;	*/
+}
+.panel-custom .btn-default:hover, .panel-custom .btn-default:active{
+	background-color:#42ABED;
+}
+.panel-custom .btn-default:focus{
+	background-color:white;	
+	color:black;
+}
+
+/* model controls */
+
+#model-controls{
+	position: fixed;
+	top:20px;
+	right:20px;	
 }
