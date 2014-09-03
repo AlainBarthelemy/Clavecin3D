@@ -10,6 +10,7 @@ function GUI(){
 		viewTwo:"view-two",
 		viewThree:"view-three"
 	};
+	this.EASING_TIME = 100;
     var scope = this;	
 	$(window).load(function() {
 		scope.addEventsListeners();
@@ -19,21 +20,22 @@ function GUI(){
 
 GUI.prototype.addEventsListeners = function(){
 	var scope = this;
-	$('#folder-toggle-btn').click(function () {
+	$('#folder-toggle-btn').click(function(){
 		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-up");
 		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-down");
 	});
-	$('#close-btn').click(function () {
-		scope.closePanel($('#main-panel'));
+	$(document).on('click','#panel-primary #close-btn', function(event){
+		scope.closePanel($('#panel-primary'));
+		scope.deactivateAllDDBtn();
 	});
 	
-	$('#zoom-in-btn').click(function () {
+	$('#zoom-in-btn').click(function(){
 		scope.emitEvent(scope.events.zoomIn);
 	});
-	$('#zoom-out-btn').click(function () {
+	$('#zoom-out-btn').click(function(){
 		scope.emitEvent(scope.events.zoomOut);
 	});
-	$('#move-btn').click(function () {
+	$('#move-btn').click(function(){
 	
 		if(! $('#move-btn').hasClass("btn-primary")){
 			$('#rotate-btn').removeClass("btn-primary");
@@ -45,7 +47,7 @@ GUI.prototype.addEventsListeners = function(){
 		}
 				
 	});
-	$('#rotate-btn').click(function () {
+	$('#rotate-btn').click(function(){
 		
 		
 			
@@ -58,23 +60,59 @@ GUI.prototype.addEventsListeners = function(){
 			scope.emitEvent(scope.events.setRotateMode);
 		}
 	});	
-	$('#view-one-btn').click(function () {
+	$('#view-one-btn').click(function(){
 		scope.emitEvent(scope.events.viewOne);
 	});
-	$('#view-two-btn').click(function () {
+	$('#view-two-btn').click(function(){
 		scope.emitEvent(scope.events.viewTwo);
 	});
-	$('#view-three-btn').click(function () {
+	$('#view-three-btn').click(function(){
 		scope.emitEvent(scope.events.viewThree);
+	});
+	
+	$('#technique-dd-btn').click(function(){
+			if(! $('#technique-dd-btn').hasClass("active")){
+				//$('#technique-dd-btn').addClass("active");
+				scope.changeActiveDDBtn($('#technique-dd-btn'));
+				scope.loadPrimaryContent("contents/technique/content.html");
+			}
+	});
+	$('#elre-dd-btn').click(function(){
+			if(! $('#elre-dd-btn').hasClass("active")){
+				//$('#technique-dd-btn').addClass("active");
+				scope.changeActiveDDBtn($('#elre-dd-btn'));
+				scope.loadPrimaryContent("contents/elre/content.html");
+			}
 	});
 };
 
 GUI.prototype.closePanel = function(element){
-	element.hide();	
+	element.fadeOut(this.EASING_TIME);	
 }
 
 GUI.prototype.emitEvent = function(eventType,eventData){
 	var event = new Event(eventType);
 	document.dispatchEvent(event);
 };
+
+GUI.prototype.changeActiveDDBtn = function(element){
+	this.deactivateAllDDBtn();
+	element.addClass("active");
+}
+GUI.prototype.deactivateAllDDBtn = function(){
+	if($(".dropdown-toggle.active").length >0){
+		$(".dropdown-toggle.active").each(function(){
+			$(this).removeClass("active");	
+		});
+	}
+}
+
+GUI.prototype.loadPrimaryContent = function(url){
+	$("#panel-primary").hide();
+	var scope = this;
+	$("#panel-primary").load(url, function(){
+		// load complete
+		$("#panel-primary").fadeIn(scope.EASING_TIME);		
+	});
+}
 

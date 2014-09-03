@@ -1,8 +1,14 @@
+@import url('fonts/Minimum-ANoir/minimum-anoir.css');
+@import url('fonts/DIN-Medium/din-medium.css');
+@import url('bootstrap/3.2.0/css/glyphicons.css');
+
 body{
 	margin: 0px;
 	padding:0px;
 	overflow: hidden;
 	background-color: #9C9C9C;
+	font-family: 'MinimumANoir';
+	font-size:18px;
 }
 #ui{
 	position:fixed;
@@ -20,8 +26,13 @@ body{
 	border : none;
 	background-color: white;
 }
-.navbar-default{
+.navbar-brand{
+	color:#42ABED !important;
 		
+}
+.navbar-default{
+	font-size: 18px;
+	/*letter-spacing: 12px;*/
 }
 .navbar-nav{
    /* line-height: 140px;*/
@@ -30,9 +41,13 @@ body{
 
 .navbar-default .navbar-brand{
 	color:#42ABED;
-	font-size:80px;	
+	font-size:90px;	
 	margin-right: 120px;
+	margin-top: 40px
 	
+}
+.navbar-default .navbar-brand img{
+	margin-top: -10px;	
 }
 .navbar-default .navbar-nav li{
 	margin-right:20px;	
@@ -51,19 +66,27 @@ body{
     background-color: #42ABED ;	
 }
 /* dropdowns */
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus , .navbar-default .navbar-nav>.open>a:hover ,.navbar-default .navbar-nav>.open>a:active{
+/*.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus , .navbar-default .navbar-nav>.open>a:hover ,.navbar-default .navbar-nav>.open>a:active{
    color: white;
    background-color: #42ABED ;
+}*/
+.active{
+   color: white !important;
+   background-color: #42ABED !important;	
+}
+.menu-icon{
+	font-size: 22px;
+	margin-right: 20px;
+}
+.menu-title{
+	font-size: 28px;
 }
 .dropdown-menu{
 	background-color: transparent;	
 }
-.dropdown-toggle-icon{
-	margin-right:20px;	
-}
 
 /* panels */
-#main-panel{
+#panel-primary{
 	position:absolute;
 	top:100px;
 	left:100px;	
@@ -80,7 +103,7 @@ body{
 }
 .panel-title{
 	font-size: 32px;
-	font-weight: bold;	
+	/*font-weight: bold;*/	
 }
 .panel-title-text-container{
 	padding-top: 30px;
@@ -94,6 +117,7 @@ body{
 }
 .panel-custom .panel-body h1{
 	font-size: 30px;
+	font-weight:normal;
 	color:white;
 	background-color: #42ABED;
 	padding: 5px 10px;

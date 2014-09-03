@@ -25,8 +25,8 @@ var container, stats;
 
 			
 
-			init();
-			animate();
+			//init();
+			//animate();
 
 
 			function init() {
@@ -46,15 +46,15 @@ var container, stats;
 
 				// CAMERA
 				camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-				camera.position.set( 0, 60, 60 );
+				camera.position.set( 0, 15, 20 );
 				
 				// CAMERA CONTROLS
 
 				cameraControls = new THREE.OrbitCustomControls(camera, renderer.domElement);
-				cameraControls.target.set( 0, 0, 0);
+				cameraControls.target.set( 0, 5, 0);
 				cameraControls.maxDistance = 60;//60
 				cameraControls.minDistance = 1;
-				cameraControls.noKeys = true;
+				cameraControls.noKeys = false;
 				cameraControls.autoRotate = false;
 				cameraControls.update();
 				
@@ -69,12 +69,12 @@ var container, stats;
 				
 				// GROUND
 				var textureSquares = THREE.ImageUtils.loadTexture( "textures/patterns/bright_squares256.png" );
-				textureSquares.repeat.set( 2000, 2000 );
+				textureSquares.repeat.set( 5000, 5000 );
 				textureSquares.wrapS = textureSquares.wrapT = THREE.RepeatWrapping;
 				textureSquares.magFilter = THREE.NearestFilter;
 				textureSquares.format = THREE.RGBFormat;
 
-				var groundMaterial = new THREE.MeshPhongMaterial( { shininess: 0, ambient: 0x000000, color: 0x883333, specular: 0x000000, map: textureSquares } );
+				var groundMaterial = new THREE.MeshPhongMaterial( { shininess: 0, ambient: 0x000000, color: 0x666666, specular: 0x000000, map: textureSquares } );
 				var planeGeometry = new THREE.PlaneGeometry( 100, 100 );
 				var ground = new THREE.Mesh( planeGeometry, groundMaterial );
 				ground.position.set( 0, 0, 0);
@@ -82,6 +82,7 @@ var container, stats;
 				ground.scale.set( 1000, 1000, 1000 );
 				//ground.receiveShadow = true;
 				scene.add( ground );
+				
 				
 				// MIRROR
 				groundMirror = new THREE.Mirror( renderer, camera, { clipBias: 0.003, textureWidth: WIDTH, textureHeight: HEIGHT, color:0x999999 } );
@@ -131,7 +132,13 @@ var container, stats;
 						
 						// little adjustments for texture material
 						child.material.shininess = 100;
-						child.material.emissive = new THREE.Color(0x666666);
+						child.material.emissive = new THREE.Color(0xABABAB);
+						child.material.specular = new THREE.Color(0x272727);//222
+						child.material.shading = THREE.SmoothShading;
+						if(child.material.map != null){
+							//child.material.map.anisotropy = 16;
+						}
+						
 					});
 					
 					
@@ -155,18 +162,18 @@ var container, stats;
 				
 				var sphere = new THREE.SphereGeometry( 0.5, 16, 8 );
 
-				var light1 = new THREE.PointLight( 0xFFFFFF,0.9,90);
-				light1.position.set( 0, 20, -20 );
-				light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
+				var light1 = new THREE.PointLight( 0xFFFFFF,0.6,90);
+				light1.position.set( 0, 15, -15 );
+				//light1.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
 				scene.add( light1 );
-				var light2 = new THREE.PointLight( 0xFFFFFF,0.8,90);
-				light2.position.set( -20, 20, 20 );
-				light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
+				var light2 = new THREE.PointLight( 0xFFFFFF,0.6,90);
+				light2.position.set( -15, 15, 15 );
+				//light2.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
 				scene.add( light2 );
-				var light3 = new THREE.PointLight( 0xFFFFFF,0.8,90 );
-				light3.position.set( 20, 20, 20 );
-				light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
-				light3.castShaddow = true;
+				var light3 = new THREE.PointLight( 0xFFFFFF,0.6,90 );
+				light3.position.set( 15, 15, 15 );
+				//light3.add( new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( { color: 0xFFFFFF } ) ) );
+				//light3.castShaddow = true;
 				scene.add( light3 );
 				
 				/*areaLight1 = new THREE.AreaLight( 0xffffff, 1 );
@@ -211,7 +218,9 @@ var container, stats;
 
 				//groundMirror.render();
 				renderer.render( scene, camera );
-				
+				TWEEN.update();
+				//camera.rotation.x++;
+				//console.log(camera.position.x+"   "+camera.position.y+"   "+camera.position.z);
 
 			}
 			
@@ -247,29 +256,39 @@ var container, stats;
 				});	
 				document.addEventListener(gui.events.viewOne,function(event){
 					var tween = new TWEEN.Tween(camera.position).to({
-						x: 60,
-						y: 60,
-						z: 0
-					}).easing(TWEEN.Easing.Linear.None).onUpdate(function () {
-						camera.lookAt(camera.target);
+						x: 10,
+						y: 10,
+						z: -20
+					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
 					}).onComplete(function () {
-						//camera.lookAt(selectedObject.position);
 					}).start();
-					
-					/*var tween = new TWEEN.Tween(camera.target).to({
-						x: selectedObject.position.x,
-						y: selectedObject.position.y,
-						z: 0
-					}).easing(TWEEN.Easing.Linear.None).onUpdate(function () {
-					}).onComplete(function () {
-						camera.lookAt(selectedObject.position);
-					}).start();*/
 				});	
 				document.addEventListener(gui.events.viewTwo,function(event){
-						console.log("V2");
+					var tween = new TWEEN.Tween(camera.position).to({
+						x: -20,
+						y: 10,
+						z: 0
+					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+					}).onComplete(function () {
+					}).start();
 				});	
 				document.addEventListener(gui.events.viewThree,function(event){
-						console.log("V3");
+					var tween = new TWEEN.Tween(camera.position).to({
+						x: 0,
+						y: 20,
+						z: 0
+					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+					}).onComplete(function () {
+					});
+					/*var tween2 = new TWEEN.Tween(camera.rotation).to({
+						x: 10,
+						y: 90*Math.PI/180,
+						z: 0
+					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+					}).onComplete(function () {
+					});*/
+					tween.start();
+					//tween2.start();
 				});	
 				
 			}

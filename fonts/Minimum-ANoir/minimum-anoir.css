@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'MinimumANoir';
+    src: url('minimum-anoir.eot');
+    src: url('minimum-anoir.eot') format('embedded-opentype'),
+         url('minimum-anoir.woff2') format('woff2'),
+         url('minimum-anoir.woff') format('woff'),
+         url('minimum-anoir.ttf') format('truetype'),
+         url('minimum-anoir.svg#MinimumANoir') format('svg');
+}
