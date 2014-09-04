@@ -160,9 +160,11 @@
 			increaseArea: '20%' // optional
 		  });
 		$('.thumb-grid').ready(function(){
-					var options = {minMargin: 5, maxMargin: 15, itemSelector: ".item", firstItemClass: "first-item"};
+					var options = {minMargin: 5, maxMargin: 15, itemSelector: ".item", firstItemClass: "first-item", resize:true};
 					setTimeout(function(){$(".thumb-grid").rowGrid(options);},300);
 		});
+		
+		// Category filtering
 		
 		$('#oiseaux-cb').on('ifUnchecked', function(event){
 			$('.oiseau-thumb').each(function(){
@@ -204,6 +206,13 @@
 				$(this).fadeIn();
 			});
 		});
+		
+		// load Secondary content
+		
+		//$('.item').click(function(){
+			//console.log('item click');
+			//gui.loadSecondaryContent("contents/elre/1920x1080/4-%20Temple%201%20couvercle%20dessus.jpg");
+		//});
 		
 	  </script>
   </div>
