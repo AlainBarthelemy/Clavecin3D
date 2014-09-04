@@ -1,6 +1,7 @@
 @import url('fonts/Minimum-ANoir/minimum-anoir.css');
 @import url('fonts/DIN-Medium/din-medium.css');
 @import url('bootstrap/3.2.0/css/glyphicons.css');
+@import url('icheck/skins/minimal/blue.css');
 
 body{
 	margin: 0px;
@@ -93,7 +94,7 @@ body{
 }
 
 .panel-custom{
-	width:400px;
+	width:460px;
 	border-width: 0;
 	border-radius: 0;
 }
@@ -112,12 +113,19 @@ body{
 	color:white;
 	background-color: black;	
 	margin-top:30px;
+	padding:5px;
 }
 .panel-custom .panel-body {
 }
 .panel-custom .panel-body h1{
 	font-size: 30px;
 	font-weight:normal;
+	color:white;
+	background-color: #42ABED;
+	padding: 5px 10px;
+	margin-top:5px;
+}
+.panel-custom .panel-body .blue-section{
 	color:white;
 	background-color: #42ABED;
 	padding: 5px 10px;
@@ -133,6 +141,47 @@ body{
 .panel-custom .btn-default:focus{
 	background-color:white;	
 	color:black;
+}
+
+/* checkboxes */
+
+.cb-label{
+	margin-left:5px;	
+}
+
+/* thumb grid */
+
+.thumb-grid {
+  background: #eee;
+  padding-top:5px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+/* clearfix */
+.thumb-grid:before,
+.thumb-grid:after {
+    content: "";
+    display: table;
+}
+.thumb-grid:after {
+    clear: both;
+}
+
+.thumb-grid .item {
+  float: left;
+  margin-bottom: 10px; 
+}
+.thumb-grid .item img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: bottom;
+}
+.thumb-grid .first-item {
+  clear: both;
+}
+/* remove margin bottom on last row */
+.thumb-grid .last-row, .last-row ~ .item {
+  margin-bottom: 0;
 }
 
 /* model controls */

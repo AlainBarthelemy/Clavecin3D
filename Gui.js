@@ -14,8 +14,11 @@ function GUI(){
     var scope = this;	
 	$(window).load(function() {
 		scope.addEventsListeners();
+		
+		scope.changeActiveDDBtn($('#elre-dd-btn'));
+		scope.loadPrimaryContent("contents/elre/content.html");
+		
 	});
-	
 }
 
 GUI.prototype.addEventsListeners = function(){
@@ -28,6 +31,9 @@ GUI.prototype.addEventsListeners = function(){
 		scope.closePanel($('#panel-primary'));
 		scope.deactivateAllDDBtn();
 	});
+/*	$(document).on('ifToggled','#oiseaux-cb', function(event){
+		console.log("ok");	
+	});*/
 	
 	$('#zoom-in-btn').click(function(){
 		scope.emitEvent(scope.events.zoomIn);
@@ -112,7 +118,8 @@ GUI.prototype.loadPrimaryContent = function(url){
 	var scope = this;
 	$("#panel-primary").load(url, function(){
 		// load complete
-		$("#panel-primary").fadeIn(scope.EASING_TIME);		
+		$("#panel-primary").fadeIn(scope.EASING_TIME);
+
 	});
 }
 
