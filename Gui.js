@@ -32,6 +32,11 @@ GUI.prototype.addEventsListeners = function(){
 		scope.closePanel($('#panel-primary'));
 		scope.deactivateAllDDBtn();
 	});
+	$(document).on('click','#panel-secondary #close-btn', function(event){
+		scope.closePanel($('#panel-secondary'));
+		scope.deactivateAllDDBtn();
+		$(".img-selected").removeClass("img-selected");
+	});
 /*	$(document).on('ifToggled','#oiseaux-cb', function(event){
 		console.log("ok");	
 	});*/
