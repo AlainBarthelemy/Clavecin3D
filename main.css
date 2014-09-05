@@ -11,6 +11,9 @@ body{
 	font-family: 'MinimumANoir';
 	font-size:18px;
 }
+/*::-webkit-scrollbar { 
+    display: none; 
+}*/
 #ui{
 	position:fixed;
 	top:0;
@@ -137,7 +140,12 @@ body{
 	max-width:100%;
 	/*max-height:100%;*/
 }
-
+.img-selected {
+	border-style: solid;
+	border-width: 5px;
+	border-color: #42ABED;
+		
+}
 
 .panel-custom .panel-body h1{
 	font-size: 30px;

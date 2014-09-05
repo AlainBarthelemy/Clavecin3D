@@ -8,15 +8,16 @@ function GUI(){
 		setPanMode:"set-pan-mode",
 		viewOne:"view-one",
 		viewTwo:"view-two",
-		viewThree:"view-three"
+		viewThree:"view-three",
+		viewDeco:"view-deco"
 	};
 	this.EASING_TIME = 100;
     var scope = this;	
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
-		scope.changeActiveDDBtn($('#elre-dd-btn'));
-		scope.loadPrimaryContent("contents/elre/content.html");
+		//scope.changeActiveDDBtn($('#elre-dd-btn'));
+		//scope.loadPrimaryContent("contents/elre/content.html");
 		
 	});
 }
@@ -35,8 +36,13 @@ GUI.prototype.addEventsListeners = function(){
 		console.log("ok");	
 	});*/
 	$(document).on('click','.item',function(event){
-		scope.loadSecondaryContent("contents/elre/panel-secondary-img-container.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});	
-		//scope.loadSecondaryContent(event.target.src.replace("thumbnails","1920x1080"));
+		if(!$(this).children().hasClass("img-selected")){
+			$(".img-selected").removeClass("img-selected");
+			$(this).children().addClass("img-selected");
+			scope.loadSecondaryContent("contents/elre/panel-secondary-img-container.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});
+			scope.emitEvent(scope.events.viewDeco,{"id":event.currentTarget.id});
+			console.log("id : "+event.currentTarget.id);
+		}
 	});
 	
 	$('#zoom-in-btn').click(function(){
@@ -101,7 +107,8 @@ GUI.prototype.closePanel = function(element){
 }
 
 GUI.prototype.emitEvent = function(eventType,eventData){
-	var event = new Event(eventType);
+	//var event = new Event(eventType);
+	var event = new CustomEvent(eventType,{"detail":eventData});
 	document.dispatchEvent(event);
 };
 
@@ -138,7 +145,11 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	});*/
 	$.get( url, data ).done(function( data ) {
 			$("#panel-secondary").html(data);
-			$("#panel-secondary").fadeIn(scope.EASING_TIME);
+			//$("#panel-secondary").fadeIn(scope.EASING_TIME);
 	});
+}
+
+GUI.prototype.showPanelSecondary = function(){
+	$("#panel-secondary").fadeIn(this.EASING_TIME);	
 }
 

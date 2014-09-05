@@ -23,10 +23,11 @@ var container, stats;
 			var gui = new GUI();
 			addGUIEventListeners();
 
-		
+			var decoCoordinates = [];
+			loadDecoCoordinates();
 
-			//init();
-			//animate();
+			init();
+			animate();
 
 
 			function init() {
@@ -211,6 +212,9 @@ var container, stats;
 				render();
 				cameraControls.update();
 				stats.update();
+				//console.log(camera.position);
+				//console.log(cameraControls.target);
+				//camera.rotation.z+=0.01;
 
 			}
 
@@ -219,8 +223,7 @@ var container, stats;
 				//groundMirror.render();
 				renderer.render( scene, camera );
 				TWEEN.update();
-				//camera.rotation.x++;
-				//console.log(camera.position.x+"   "+camera.position.y+"   "+camera.position.z);
+				//camera.rotation.z+=0.1;
 
 			}
 			
@@ -273,23 +276,66 @@ var container, stats;
 					}).start();
 				});	
 				document.addEventListener(gui.events.viewThree,function(event){
+
+				});	
+				
+				document.addEventListener(gui.events.viewDeco,function(event){
+					var coordinates = idToDecoCoordinates(event.detail.id);
 					var tween = new TWEEN.Tween(camera.position).to({
-						x: 0,
-						y: 20,
-						z: 0
-					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+						x: coordinates.camera.x,
+						y: coordinates.camera.y,
+						z: coordinates.camera.z
+					},1000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+						//cameraControls.target.set(coordinates.target.x, coordinates.target.y, coordinates.target.z);
 					}).onComplete(function () {
-					});
-					/*var tween2 = new TWEEN.Tween(camera.rotation).to({
-						x: 10,
-						y: 90*Math.PI/180,
-						z: 0
+						gui.showPanelSecondary();
+					}).start();
+					var tweenTarget = new TWEEN.Tween(cameraControls.target).to({
+						x: coordinates.target.x,
+						y: coordinates.target.y,
+						z: coordinates.target.z
+					},1000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
+					}).onComplete(function () {
+					}).start();
+					
+					/*var tweenRot = new TWEEN.Tween(camera.rotation).to({
+						x: -0.69,
+						y: 1.51,
+						z: 0.69
 					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
 					}).onComplete(function () {
 					});*/
-					tween.start();
-					//tween2.start();
+					/*var tweenTrans = new TWEEN.Tween(camera.position).to({
+						x: 1.37,
+						y: 7.09,
+						z: 9.36
+					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {cameraControls.target.set(-3, 7, 9);
+					}).onComplete(function () {
+					});*/
+					//tweenRot.start();
+					//tweenTrans.start();
 				});	
 				
+			}
+			
+			function loadDecoCoordinates(){
+				
+				$.getJSON( "contents/elre/coordinates.json", function( data ) {
+					decoCoordinates = data.coordinates;
+				});	
+			}
+			
+			function idToDecoCoordinates(id){
+				var result = $.grep(decoCoordinates, function(e){ return e.id == id; });
+				if (result.length == 0) {
+				  // not found
+				  return -1;
+				} else if (result.length == 1) {
+				  // access the foo property using result[0].foo
+				  return result[0];
+				} else {
+				  // multiple items found
+				  return result;
+				}
 			}
 
