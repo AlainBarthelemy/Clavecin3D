@@ -18,7 +18,7 @@ body{
 	position:fixed;
 	top:0;
 	left:0;	
-	/*visibility: hidden;*/
+	visibility: hidden;
 }
 
 #main-nav{
@@ -129,6 +129,17 @@ body{
 .panel-custom .panel-body {
 }
 
+.tech-list a{
+	color:black;
+	cursor:pointer;	
+}
+.tech-list a:hover{
+	color:#42ABED;
+}
+.tech-list a:active{
+	color: white;
+    background-color: #42ABED ;	
+}
 .secondary-full-img{
 	background-color: white;
 	margin-top:40px;
@@ -217,6 +228,7 @@ body{
 /* model controls */
 
 #model-controls{
+	visibility:visible;
 	position: fixed;
 	top:20px;
 	right:20px;	

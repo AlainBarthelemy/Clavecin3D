@@ -16,8 +16,8 @@ function GUI(){
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
-		//scope.changeActiveDDBtn($('#elre-dd-btn'));
-		//scope.loadPrimaryContent("contents/elre/content.html");
+		//scope.changeActiveDDBtn($('#technique-dd-btn'));
+		//scope.loadPrimaryContent("contents/technique/content.html");
 		
 	});
 }

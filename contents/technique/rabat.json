@@ -1,0 +1,456 @@
+{
+  "faces": [
+    {
+      "meshid": 42,
+      "faceindex": 0
+    },
+    {
+      "meshid": 42,
+      "faceindex": 1
+    },
+    {
+      "meshid": 42,
+      "faceindex": 2
+    },
+    {
+      "meshid": 42,
+      "faceindex": 3
+    },
+    {
+      "meshid": 42,
+      "faceindex": 4
+    },
+    {
+      "meshid": 42,
+      "faceindex": 5
+    },
+    {
+      "meshid": 42,
+      "faceindex": 6
+    },
+    {
+      "meshid": 42,
+      "faceindex": 7
+    },
+    {
+      "meshid": 42,
+      "faceindex": 8
+    },
+    {
+      "meshid": 42,
+      "faceindex": 9
+    },
+    {
+      "meshid": 42,
+      "faceindex": 10
+    },
+    {
+      "meshid": 42,
+      "faceindex": 11
+    },
+    {
+      "meshid": 42,
+      "faceindex": 12
+    },
+    {
+      "meshid": 42,
+      "faceindex": 13
+    },
+    {
+      "meshid": 42,
+      "faceindex": 14
+    },
+    {
+      "meshid": 42,
+      "faceindex": 15
+    },
+    {
+      "meshid": 42,
+      "faceindex": 16
+    },
+    {
+      "meshid": 42,
+      "faceindex": 17
+    },
+    {
+      "meshid": 42,
+      "faceindex": 18
+    },
+    {
+      "meshid": 42,
+      "faceindex": 19
+    },
+    {
+      "meshid": 42,
+      "faceindex": 20
+    },
+    {
+      "meshid": 42,
+      "faceindex": 21
+    },
+    {
+      "meshid": 42,
+      "faceindex": 22
+    },
+    {
+      "meshid": 42,
+      "faceindex": 23
+    },
+    {
+      "meshid": 42,
+      "faceindex": 24
+    },
+    {
+      "meshid": 42,
+      "faceindex": 25
+    },
+    {
+      "meshid": 42,
+      "faceindex": 26
+    },
+    {
+      "meshid": 42,
+      "faceindex": 27
+    },
+    {
+      "meshid": 42,
+      "faceindex": 28
+    },
+    {
+      "meshid": 42,
+      "faceindex": 29
+    },
+    {
+      "meshid": 42,
+      "faceindex": 30
+    },
+    {
+      "meshid": 42,
+      "faceindex": 31
+    },
+    {
+      "meshid": 42,
+      "faceindex": 32
+    },
+    {
+      "meshid": 42,
+      "faceindex": 33
+    },
+    {
+      "meshid": 42,
+      "faceindex": 34
+    },
+    {
+      "meshid": 42,
+      "faceindex": 35
+    },
+    {
+      "meshid": 42,
+      "faceindex": 39
+    },
+    {
+      "meshid": 48,
+      "faceindex": 0
+    },
+    {
+      "meshid": 48,
+      "faceindex": 1
+    },
+    {
+      "meshid": 48,
+      "faceindex": 2
+    },
+    {
+      "meshid": 48,
+      "faceindex": 3
+    },
+    {
+      "meshid": 48,
+      "faceindex": 4
+    },
+    {
+      "meshid": 48,
+      "faceindex": 5
+    },
+    {
+      "meshid": 48,
+      "faceindex": 6
+    },
+    {
+      "meshid": 48,
+      "faceindex": 7
+    },
+    {
+      "meshid": 48,
+      "faceindex": 8
+    },
+    {
+      "meshid": 48,
+      "faceindex": 9
+    },
+    {
+      "meshid": 48,
+      "faceindex": 10
+    },
+    {
+      "meshid": 48,
+      "faceindex": 11
+    },
+    {
+      "meshid": 48,
+      "faceindex": 12
+    },
+    {
+      "meshid": 48,
+      "faceindex": 15
+    },
+    {
+      "meshid": 48,
+      "faceindex": 16
+    },
+    {
+      "meshid": 48,
+      "faceindex": 17
+    },
+    {
+      "meshid": 48,
+      "faceindex": 18
+    },
+    {
+      "meshid": 48,
+      "faceindex": 19
+    },
+    {
+      "meshid": 48,
+      "faceindex": 21
+    },
+    {
+      "meshid": 48,
+      "faceindex": 22
+    },
+    {
+      "meshid": 50,
+      "faceindex": 15
+    },
+    {
+      "meshid": 50,
+      "faceindex": 16
+    },
+    {
+      "meshid": 50,
+      "faceindex": 17
+    },
+    {
+      "meshid": 50,
+      "faceindex": 18
+    },
+    {
+      "meshid": 50,
+      "faceindex": 19
+    },
+    {
+      "meshid": 50,
+      "faceindex": 20
+    },
+    {
+      "meshid": 50,
+      "faceindex": 21
+    },
+    {
+      "meshid": 50,
+      "faceindex": 22
+    },
+    {
+      "meshid": 50,
+      "faceindex": 23
+    },
+    {
+      "meshid": 50,
+      "faceindex": 24
+    },
+    {
+      "meshid": 50,
+      "faceindex": 25
+    },
+    {
+      "meshid": 50,
+      "faceindex": 26
+    },
+    {
+      "meshid": 50,
+      "faceindex": 27
+    },
+    {
+      "meshid": 50,
+      "faceindex": 28
+    },
+    {
+      "meshid": 50,
+      "faceindex": 29
+    },
+    {
+      "meshid": 50,
+      "faceindex": 30
+    },
+    {
+      "meshid": 50,
+      "faceindex": 31
+    },
+    {
+      "meshid": 50,
+      "faceindex": 32
+    },
+    {
+      "meshid": 50,
+      "faceindex": 33
+    },
+    {
+      "meshid": 50,
+      "faceindex": 34
+    },
+    {
+      "meshid": 50,
+      "faceindex": 35
+    },
+    {
+      "meshid": 50,
+      "faceindex": 36
+    },
+    {
+      "meshid": 50,
+      "faceindex": 37
+    },
+    {
+      "meshid": 50,
+      "faceindex": 38
+    },
+    {
+      "meshid": 50,
+      "faceindex": 39
+    },
+    {
+      "meshid": 50,
+      "faceindex": 40
+    },
+    {
+      "meshid": 50,
+      "faceindex": 41
+    },
+    {
+      "meshid": 50,
+      "faceindex": 42
+    },
+    {
+      "meshid": 50,
+      "faceindex": 43
+    },
+    {
+      "meshid": 50,
+      "faceindex": 44
+    },
+    {
+      "meshid": 50,
+      "faceindex": 45
+    },
+    {
+      "meshid": 50,
+      "faceindex": 46
+    },
+    {
+      "meshid": 50,
+      "faceindex": 47
+    },
+    {
+      "meshid": 50,
+      "faceindex": 48
+    },
+    {
+      "meshid": 50,
+      "faceindex": 49
+    },
+    {
+      "meshid": 50,
+      "faceindex": 50
+    },
+    {
+      "meshid": 50,
+      "faceindex": 52
+    },
+    {
+      "meshid": 50,
+      "faceindex": 53
+    },
+    {
+      "meshid": 50,
+      "faceindex": 54
+    },
+    {
+      "meshid": 50,
+      "faceindex": 55
+    },
+    {
+      "meshid": 50,
+      "faceindex": 56
+    },
+    {
+      "meshid": 50,
+      "faceindex": 57
+    },
+    {
+      "meshid": 50,
+      "faceindex": 58
+    },
+    {
+      "meshid": 50,
+      "faceindex": 59
+    },
+    {
+      "meshid": 50,
+      "faceindex": 60
+    },
+    {
+      "meshid": 50,
+      "faceindex": 61
+    },
+    {
+      "meshid": 50,
+      "faceindex": 62
+    },
+    {
+      "meshid": 50,
+      "faceindex": 63
+    },
+    {
+      "meshid": 50,
+      "faceindex": 64
+    },
+    {
+      "meshid": 50,
+      "faceindex": 65
+    },
+    {
+      "meshid": 50,
+      "faceindex": 66
+    },
+    {
+      "meshid": 50,
+      "faceindex": 71
+    },
+    {
+      "meshid": 50,
+      "faceindex": 74
+    },
+    {
+      "meshid": 50,
+      "faceindex": 87
+    },
+    {
+      "meshid": 50,
+      "faceindex": 97
+    },
+    {
+      "meshid": 50,
+      "faceindex": 100
+    }
+  ]
+}

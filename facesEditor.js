@@ -18,8 +18,15 @@ var container, stats;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
 			
-			var ClavecinText,ClavecinVol,ClavecinWF;
-
+			//var ClavecinText,ClavecinVol,ClavecinWF;
+			var models = []; 
+			
+			var projector, raycaster, intersects, mouse, vector, intersected, lastColor;
+			var boxMesh;
+			
+			var EDITION_MODES = {add:"add",remove:"remove",none:"none"};
+			var editionMode = "none";
+			
 			var gui = new GUI();
 			addGUIEventListeners();
 
@@ -82,7 +89,7 @@ var container, stats;
 				ground.rotation.x = - Math.PI / 2;
 				ground.scale.set( 1000, 1000, 1000 );
 				//ground.receiveShadow = true;
-				scene.add( ground );
+				//scene.add( ground );
 				
 				
 				// MIRROR
@@ -107,25 +114,111 @@ var container, stats;
 					object.position.set(0,5,0);
 					scene.add( object );
 					
+					//volumetric model
+					//var volMaterial = new THREE.MeshPhongMaterial( { ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0x333333, shininess: 0});
+					var volObject = new THREE.Object3D();
+					volObject.position.set(0,5,0);
+					scene.add(volObject);
+					
 					//wireframe model
 					var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x42ABED,wireframe:true } );
 					var wfObject = new THREE.Object3D();
 					wfObject.position.set(0,5,0);
 					scene.add(wfObject);
 					
-					//volumetric model
-					var volMaterial = new THREE.MeshPhongMaterial( { ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0x333333, shininess: 0});
-					var volObject = new THREE.Object3D();
-					volObject.position.set(0,5,0);
-					scene.add(volObject);
-					
 
+					
 					object.children[0].children.forEach(function(child){
 
 						// create vol model from child geometry 
-						var volMesh = new THREE.Mesh(child.geometry, volMaterial);
-						volObject.add( volMesh );	
+						
+						var facesMaterials = [];
+						for (var i=0; i<1000; i++) {//child.geometry.faces.length --> to many !!
+						  //var mat = new THREE.MeshBasicMaterial({color: Math.random()*0xffffff});
+						  var mat = new THREE.MeshPhongMaterial( {ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0xAAAAAA, shininess: 0})
+						  mat.transparent = true;
+						  mat.opacity = 0.2;
+						  facesMaterials.push(mat);
+						}
+						var faceMaterial = new THREE.MeshFaceMaterial(facesMaterials);
+						var geom = child.geometry.clone();
+						
+						geom.faces.forEach(function(face){
+							face.materialIndex = Math.floor(Math.random()*facesMaterials.length);	
+						});
+						
+						geom.materials = facesMaterials;
+						
+						var volMesh = new THREE.Mesh( geom, faceMaterial )						
+						
+
+						//var volMaterial = new THREE.MeshPhongMaterial( {ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0xAAAAAA, shininess: 0});
+						//var volMesh = new THREE.Mesh(child.geometry, volMaterial);
+						//volMesh.material.transparent = false;
+						//volMesh.material.opacity = 0.2;
 							
+						switch(volMesh.id){
+							case 30:
+								volMesh.name="unknown";
+								//volMesh.material.transparent = false;
+								break;
+							case 32:
+								volMesh.name="unkonwn(plancher)";
+								//volMesh.material.transparent = false;
+								break;
+							case 34:
+								volMesh.name="F";
+								//volMesh.material.transparent = false;
+								break;	
+							case 36:
+								volMesh.name="L+A";
+								//volMesh.material.transparent = false;
+								break;	
+							case 38:
+								volMesh.name="C";
+								//volMesh.material.transparent = false;
+								break;
+							case 40:
+								volMesh.name="F";
+								//volMesh.material.transparent = false;
+								break;
+							case 42:
+								volMesh.name="RABAT INTERIEUR";
+								//volMesh.material.transparent = false;
+								break;
+							case 44:
+								volMesh.name="unkonwn";
+								//volMesh.material.transparent = false;
+								break;
+							case 46:
+								volMesh.name="unkonwn (touches face avnt)";
+								//volMesh.material.transparent = false;
+								break;
+							case 48:
+								volMesh.name="RABAT EXTERIEUR";
+								//volMesh.material.transparent = false;
+								break;
+							case 50:
+								volMesh.name="divers (clavier)";
+								//volMesh.material.transparent = false;
+							case 52:
+								volMesh.name="divers (clavier + B)"
+								//volMesh.material.transparent = false;
+							case 54:
+								volMesh.name="divers (clavier + B+ E)";
+								//volMesh.material.transparent = false;
+								break;
+							case 56:
+								volMesh.name="divers contour";
+								break;
+							default:break;
+						}
+						
+						volObject.add( volMesh );
+							
+						console.log("mesh id : "+volMesh.id+" mesh name : "+volMesh.name);
+						
+
 						// create wf model from child geometry 
 						var wfMesh = new THREE.Mesh( child.geometry, wireframeMaterial );
 						wfObject.add( wfMesh );
@@ -143,18 +236,33 @@ var container, stats;
 					});
 					
 					
-					// to access objects outside of this callback
-					ClavecinText = object;
-					ClavecinVol = volObject;
-					ClavecinWF = wfObject;
+					//ClavecinText = object;
+					//ClavecinVol = volObject;
+					//ClavecinWF = ;
 					
-					ClavecinText.visible = true;
-					ClavecinVol.visible = false;
-					ClavecinWF.visible = false;
+					object.visible = false;
+					volObject.visible = true;
+					wfObject.visible = true;
+					
+					models.push(object);
+					models.push(volObject);
+					models.push(wfObject);
+					
 
 
 				} );
 				
+				/*var boxMaterials = [];
+				for (var i=0; i<6; i++) {
+				  var mat = new THREE.MeshBasicMaterial({color: Math.random()*0xffffff});
+				  boxMaterials.push(mat);
+				}
+				var geometry = new THREE.BoxGeometry( 10, 10, 10 );
+				var boxMaterial = new THREE.MeshFaceMaterial(boxMaterials);
+				boxMesh = new THREE.Mesh( geometry, boxMaterial );
+				boxMesh.name = "box";
+				boxMesh.position.set(0,6,0);
+				scene.add( boxMesh );*/
 
 				
 				// LIGHTS
@@ -186,9 +294,18 @@ var container, stats;
 				/*var directionalLight = new THREE.DirectionalLight( 0xffffEE, 0.04 );
 				directionalLight.position.set( 50, 10, 0 );
 				scene.add( directionalLight );*/
+				
+				projector = new THREE.Projector();
+				raycaster = new THREE.Raycaster();
+				mouse = new THREE.Vector2();
+				vector = new THREE.Vector3();
+				intersected = null;
 			
 
 				window.addEventListener( 'resize', onWindowResize, false );
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				window.addEventListener( 'keydown', onKeyDown, false );
+
 
 			}
 
@@ -204,6 +321,38 @@ var container, stats;
 
 			}
 
+			
+			function onDocumentMouseMove( event ) {
+
+				event.preventDefault();
+
+				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+			}
+			function onKeyDown( event ) {
+		
+				switch ( event.keyCode ) {
+		
+					case 65: // a
+						editionMode = EDITION_MODES.add;
+						break;
+		
+					case 82: // r
+						editionMode = EDITION_MODES.remove
+						break;
+		
+					case 78: // n
+						editionMode = EDITION_MODES.none;
+						break;
+		
+					case 68: // d
+						dumpFaces();
+						break;
+		
+				}
+		
+			}
 
 
 			function animate() {
@@ -224,24 +373,27 @@ var container, stats;
 				renderer.render( scene, camera );
 				TWEEN.update();
 				//camera.rotation.z+=0.1;
+				vector.set( mouse.x, mouse.y, 0.1 );
+				projector.unprojectVector( vector, camera );
+				
+				raycaster.ray.set( camera.position, vector.sub( camera.position ).normalize() );
+				//if(models.length >2){
+				var intersections = raycaster.intersectObjects(models[1].children);
+				//console.log(intersections.length);
+				if ( intersections.length > 0) {
+					intersections.forEach(function(intersect){
+						if(editionMode == EDITION_MODES.add){
+							intersect.object.material.materials[intersect.face.materialIndex].transparent = false;
+						}else if(editionMode == EDITION_MODES.remove){
+							intersect.object.material.materials[intersect.face.materialIndex].transparent = true;
+						}
+					});
 
+
+				}
+				
 			}
 			
-			window.onkeydown = function(event){
-				switch (event.keyCode) {
-					case 37 : 
-					break;
-					case 38 : 
-					break;
-					case 39 : 
-					break;
-					case 40 : 
-					break;
-					default:
-					break;
-				}
-		
-			}
 			
 			function addGUIEventListeners(){
 				
@@ -337,5 +489,18 @@ var container, stats;
 				  // multiple items found
 				  return result;
 				}
+			}
+			
+			function dumpFaces(){
+				var result = {"faces":[]};
+				models[1].children.forEach(function(mesh){
+					mesh.geometry.faces.forEach(function(face,index){
+						if(!mesh.material.materials[face.materialIndex].transparent){
+							//console.log("mesh id : "+mesh.id+" face idex : "+index); 	
+							result.faces.push({"meshid":mesh.id,"faceindex":index});
+						}
+					});
+				});
+				console.log(result);
 			}
 
