@@ -134,8 +134,8 @@ var container, stats;
 						
 						var facesMaterials = [];
 						for (var i=0; i<1000; i++) {//child.geometry.faces.length --> to many !!
-						  //var mat = new THREE.MeshBasicMaterial({color: Math.random()*0xffffff});
-						  var mat = new THREE.MeshPhongMaterial( {ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0xAAAAAA, shininess: 0})
+						  var mat = new THREE.MeshBasicMaterial({color: 0xffffff});
+						  //var mat = new THREE.MeshPhongMaterial( {ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0xAAAAAA, shininess: 0})
 						  mat.transparent = true;
 						  mat.opacity = 0.2;
 						  facesMaterials.push(mat);
@@ -143,8 +143,9 @@ var container, stats;
 						var faceMaterial = new THREE.MeshFaceMaterial(facesMaterials);
 						var geom = child.geometry.clone();
 						
-						geom.faces.forEach(function(face){
-							face.materialIndex = Math.floor(Math.random()*facesMaterials.length);	
+						geom.faces.forEach(function(face,index){
+							//face.materialIndex = Math.floor(Math.random()*facesMaterials.length);	
+							face.materialIndex = index%facesMaterials.length;
 						});
 						
 						geom.materials = facesMaterials;
