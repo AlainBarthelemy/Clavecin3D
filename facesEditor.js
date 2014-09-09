@@ -493,12 +493,26 @@ var container, stats;
 			}
 			
 			function dumpFaces(){
-				var result = {"faces":[]};
-				models[1].children.forEach(function(mesh){
-					mesh.geometry.faces.forEach(function(face,index){
+				var result = {
+						"camera":{
+							"camera":{
+								"x":camera.position.x,
+								"y":camera.position.y,
+								"z":camera.position.z
+							},
+							"target":{
+								"x":cameraControls.target.x,
+								"y":cameraControls.target.y,
+								"z":cameraControls.target.z
+							}
+						},
+						"faces":[]
+						};
+				models[1].children.forEach(function(mesh,meshindex){
+					mesh.geometry.faces.forEach(function(face,faceindex){
 						if(!mesh.material.materials[face.materialIndex].transparent){
 							//console.log("mesh id : "+mesh.id+" face idex : "+index); 	
-							result.faces.push({"meshid":mesh.id,"faceindex":index});
+							result.faces.push({"meshid":mesh.id,"meshindex":meshindex,"faceindex":faceindex});
 						}
 					});
 				});

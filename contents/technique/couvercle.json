@@ -1,0 +1,1191 @@
+{
+  "camera": {
+    "camera": {
+      "x": 14.636301833741745,
+      "y": 19.951810668016783,
+      "z": 18.760551614962342
+    },
+    "target": {
+      "x": -4.214439206888526,
+      "y": 6.5192523169159085,
+      "z": 3.999595578318617
+    }
+  },
+  "faces": [
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 1147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 1294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 1827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 2147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 2294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 2827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 3147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 3294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 3827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 4147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 4294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 4827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 5147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 5294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 5827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 6147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 6294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 6827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 7147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 7294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 7827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 8147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 8294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 8827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 9147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 9294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 9827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 10147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 10294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 10827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 11147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 11294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 11827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 12147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 12294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 12827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 13147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 13294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 13827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 14147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 14294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 14827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 15147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 15294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 15827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 16147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 16294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 16827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 17147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 17294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 17827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 18147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 18294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 18827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 19147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 19294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 19827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 20147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 20294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 20827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 21147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 21294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 21827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 22147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 22294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 22827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 23147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 23294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 23827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 24147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 24294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 24827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 25147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 25294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 25827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 26147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 26294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 26827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 27147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 27294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 27827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 28147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 28294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 28827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 29147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 29294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 29827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 30147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 30294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 30827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 31147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 31294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 31827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 32147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 32294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 32827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 33147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 33294
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 33827
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 34147
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 34294
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19134
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20134
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 0
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 1
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 2
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 3
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 4
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 5
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 6
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 7
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 8
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 9
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 10
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 11
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 12
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 13
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 14
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 15
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 16
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 17
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 18
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 19
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 20
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 21
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 22
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 23
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 24
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 25
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 26
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 27
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 28
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 29
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 30
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 31
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 32
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 33
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 34
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 35
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 39
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 0
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 1
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 2
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 3
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 4
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 5
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 6
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 7
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 8
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 9
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 10
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 11
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 12
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 13
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 14
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 15
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 16
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 17
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 18
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 19
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 20
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 21
+    },
+    {
+      "meshid": 48,
+      "meshindex": 9,
+      "faceindex": 22
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 15
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 16
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 17
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 18
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 19
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 20
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 21
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 22
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 23
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 24
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 25
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 26
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 27
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 28
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 29
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 30
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 31
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 32
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 33
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 34
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 35
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 36
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 37
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 38
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 39
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 40
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 41
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 42
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 43
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 44
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 45
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 46
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 47
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 48
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 49
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 50
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 53
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 54
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 55
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 56
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 57
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 58
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 59
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 60
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 61
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 62
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 63
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 64
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 65
+    },
+    {
+      "meshid": 50,
+      "meshindex": 10,
+      "faceindex": 66
+    }
+  ]
+}

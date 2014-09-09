@@ -18,6 +18,26 @@ var container, stats;
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
 			
+			var defaultPos =    {
+									"camera": {
+									  "x": 7.639273274111902,
+									  "y": 13.842984243067429,
+									  "z": 28.04631800122854
+									},
+									"target": {
+									  "x": -1.7996103643528047,
+									  "y": 4.9312685332480495,
+									  "z": 0.5363615876957285
+									}
+			}
+			
+			var renders = {
+					textured : "textured",
+					vol : "vol",
+					wireframe : "wireframe",
+					volAndWire : "volAndWire"
+			}
+			
 			var models = []; 
 			
 			
@@ -52,12 +72,12 @@ var container, stats;
 
 				// CAMERA
 				camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
-				camera.position.set( 0, 15, 20 );
+				camera.position.set( defaultPos.camera.x, defaultPos.camera.y, defaultPos.camera.z );
 				
 				// CAMERA CONTROLS
 
 				cameraControls = new THREE.OrbitCustomControls(camera, renderer.domElement);
-				cameraControls.target.set( 0, 5, 0);
+				cameraControls.target.set( defaultPos.target.x, defaultPos.target.y, defaultPos.target.z);
 				cameraControls.maxDistance = 60;//60
 				cameraControls.minDistance = 1;
 				cameraControls.noKeys = false;
@@ -230,9 +250,9 @@ var container, stats;
 					
 					
 					
-					object.visible = false;
-					volObject.visible = true;
-					wfObject.visible = true;
+					object.visible = true;
+					volObject.visible = false;
+					wfObject.visible = false;
 					
 					models.push(object);
 					models.push(volObject);
@@ -299,60 +319,7 @@ var container, stats;
 				//groundMirror.render();
 				renderer.render( scene, camera );
 				TWEEN.update();
-				//camera.rotation.z+=0.1;
-				/*vector.set( mouse.x, mouse.y, 0.1 );
-				projector.unprojectVector( vector, camera );
-				
-				raycaster.ray.set( camera.position, vector.sub( camera.position ).normalize() );
-				//if(models.length >2){
-				var intersections = raycaster.intersectObjects(models[1].children);
-				//console.log(intersections.length);
-				if ( intersections.length > 0) {
-					intersections.forEach(function(intersect){
-						intersect.object.material.materials[intersect.face.materialIndex].transparent = false;
-						//intersect.object.material.materials[intersect.face.materialIndex].color = new THREE.Color("#FF0000");	
-						//console.log(intersect.faceIndex+"  "+intersect.face.materialIndex);
-					});
-					if ( intersected != null && intersected != intersections[ 0 ] ) {// new intersection
-						
-						//reset the color
-						 intersected.object.material.materials[intersected.face.materialIndex].color = lastColor;
-						 // swap to new intersection
-						 intersected = intersections[ 0 ];
-						 // store the current color
-						 lastColor = intersected.object.material.materials[intersected.face.materialIndex].color
-						 //set the color to red
-						 intersected.object.material.materials[intersected.face.materialIndex].color = new THREE.Color("#FF0000");
 
-						 console.log("face index  :"+intersected.faceIndex);
-
-					} else if( intersected == null){
-						 intersected = intersections[ 0 ];
-						 // store the current color
-						 lastColor = intersected.object.material.materials[intersected.face.materialIndex].color
-						 //set the color to red
-						 intersected.object.material.materials[intersected.face.materialIndex].color = new THREE.Color("#FF0000");
-					}
-
-
-				} else {
-					if(intersected != null){
-						intersected.object.material.materials[intersected.face.materialIndex].color = lastColor;
-						intersected = null;
-					}
-
-				}
-				
-				
-				intersections.forEach(function(intersect){
-					if(intersect.object.name == "box"){
-						intersect.object.material.materials[intersect.face.materialIndex].color = new THREE.Color("#FF0000");
-						
-					}
-				});
-				if(intersections.length >=1){
-					console.log(intersections);	
-				}*/
 			}
 			
 			
@@ -371,13 +338,15 @@ var container, stats;
 						cameraControls.mode = cameraControls.MODE.PAN;
 				});	
 				document.addEventListener(gui.events.viewOne,function(event){
-					var tween = new TWEEN.Tween(camera.position).to({
+					/*var tween = new TWEEN.Tween(camera.position).to({
 						x: 10,
 						y: 10,
 						z: -20
 					},2000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
 					}).onComplete(function () {
-					}).start();
+					}).start();*/
+					unSelectAllElements();
+					selectElement("pointe");
 				});	
 				document.addEventListener(gui.events.viewTwo,function(event){
 					/*var tween = new TWEEN.Tween(camera.position).to({
@@ -398,25 +367,105 @@ var container, stats;
 				
 				document.addEventListener(gui.events.viewDeco,function(event){
 					var coordinates = idToDecoCoordinates(event.detail.id);
+					autoMove(coordinates.camera,coordinates.target,true);
+				});
+				document.addEventListener(gui.events.viewTech,function(event){
+					var coordinates = techElements[event.detail.id].camera;
+					unSelectAllElements();
+					selectElement(event.detail.id);
+					autoMove(coordinates.camera,coordinates.target,true);
+				});
+				document.addEventListener(gui.events.changeMode,function(event){
+					
+					switch (gui.currentMode){
+						case gui.modes.tech :
+							unSelectAllElements();
+						break;
+						case gui.modes.elre :
+						break;
+						case gui.modes.histo :
+						break;
+						case gui.modes.none : 
+						break;
+						default:break;
+					}
+					switch (event.detail.newMode){
+						case gui.modes.tech :
+							resetPosition();
+							switchToRenderMode(renders.volAndWire);
+						break;
+						case gui.modes.elre :
+							resetPosition();
+							switchToRenderMode(renders.textured);
+						break;
+						case gui.modes.histo :
+							resetPosition();
+							switchToRenderMode(renders.textured);
+						break;
+						case gui.modes.none : 
+							switchToRenderMode(renders.textured);
+						break;
+						default:break;
+					}
+					//unSelectAllElements();
+					//selectElement("rabat");
+				});
+				
+			}
+			
+			function autoMove(cameraDest,targetDest,showPanelSecondary){
+				
+				    showPanelSecondary = typeof showPanelSecondary !== 'undefined' ? showPanelSecondary : false;
+				
 					var tween = new TWEEN.Tween(camera.position).to({
-						x: coordinates.camera.x,
-						y: coordinates.camera.y,
-						z: coordinates.camera.z
+						x: cameraDest.x,
+						y: cameraDest.y,
+						z: cameraDest.z
 					},1000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
-						//cameraControls.target.set(coordinates.target.x, coordinates.target.y, coordinates.target.z);
+						//cameraControls.target.set(targetDest.x, targetDest.y, targetDest.z);
+						//cameraControls.update();
 					}).onComplete(function () {
-						gui.showPanelSecondary();
+						if(showPanelSecondary)
+							gui.showPanelSecondary();
 					}).start();
 					var tweenTarget = new TWEEN.Tween(cameraControls.target).to({
-						x: coordinates.target.x,
-						y: coordinates.target.y,
-						z: coordinates.target.z
+						x: targetDest.x,
+						y: targetDest.y,
+						z: targetDest.z
 					},1000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
 					}).onComplete(function () {
-					}).start();
-					
-				});	
+					}).start();	
+			}
+			
+			function switchToRenderMode(mode){
 				
+				switch(mode){
+					case renders.textured :
+						models[0].visible = true;
+						models[1].visible = false;
+						models[2].visible = false;
+						break;
+					case renders.vol : 
+						models[0].visible = false;
+						models[1].visible = true;
+						models[2].visible = false;
+						break;
+					case renders.wireframe :
+						models[0].visible = false;
+						models[1].visible = false;
+						models[2].visible = true;
+						break;
+					case renders.volAndWire :
+						models[0].visible = false;
+						models[1].visible = true;
+						models[2].visible = true;
+						break;
+				}
+				
+			}
+			
+			function resetPosition(){
+				autoMove(defaultPos.camera,defaultPos.target);	
 			}
 			
 			function loadDecoCoordinates(){
@@ -440,18 +489,46 @@ var container, stats;
 				}
 			}
 			
+			
 			function loadTechElements(){
 				
-				$.getJSON( "contents/technique/rabat.json", function( data ) {
-					techElements.rabat = data.faces;
+				$.getJSON( "contents/technique/couvercle.json", function( data ) {
+					techElements.couvercle = data;
 				});
 				$.getJSON( "contents/technique/eclisse.json", function( data ) {
-					techElements.eclisse = data.faces;
-				});				
+					techElements.eclisse = data;
+				});	
+				$.getJSON( "contents/technique/pointe.json", function( data ) {
+					techElements.pointe = data;
+				});
+				$.getJSON( "contents/technique/barre.json", function( data ) {
+					techElements.barre = data;
+				});
+				$.getJSON( "contents/technique/echine.json", function( data ) {
+					techElements.echine = data;
+				});	
+				$.getJSON( "contents/technique/joue.json", function( data ) {
+					techElements.joue = data;
+				});
+				$.getJSON( "contents/technique/table.json", function( data ) {
+					techElements.table = data;
+				});
+				$.getJSON( "contents/technique/fond.json", function( data ) {
+					techElements.fond = data;
+				});
+				$.getJSON( "contents/technique/couvercle.json", function( data ) {
+					techElements.couvercle = data;
+				});
+				$.getJSON( "contents/technique/clavier.json", function( data ) {
+					techElements.clavier = data;
+				});
+				
 			}
 			function selectElement(name){
-				
-				switch(name){
+					techElements[name].faces.forEach(function(data){
+						models[1].children[data.meshindex].material.materials[models[1].children[data.meshindex].geometry.faces[data.faceindex].materialIndex].transparent = false;
+					});		
+/*				switch(name){
 					case "rabat":
 							techElements.rabat.forEach(function(set){
 								models[1].children[getMeshIndex(set.meshid)].material.materials[models[1].children[getMeshIndex(set.meshid)].geometry.faces[set.faceindex].materialIndex].transparent = false;
@@ -462,12 +539,17 @@ var container, stats;
 								models[1].children[getMeshIndex(set.meshid)].material.materials[models[1].children[getMeshIndex(set.meshid)].geometry.faces[set.faceindex].materialIndex].transparent = false;
 							});						
 						break;
+					case "pointe":
+							techElements.pointe.faces.forEach(function(data){
+								models[1].children[data.meshindex].material.materials[models[1].children[data.meshindex].geometry.faces[data.faceindex].materialIndex].transparent = false;
+							});						
+						break;
 						
 						
 					default:
 						console.log("unknown element");
 						break;
-				}
+				}*/
 				
 			}
 			function unSelectAllElements(){

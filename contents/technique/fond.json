@@ -1,0 +1,1626 @@
+{
+  "camera": {
+    "camera": {
+      "x": -0.04839665552970956,
+      "y": -24.66190436451352,
+      "z": 2.1275431036760653
+    },
+    "target": {
+      "x": -0.04842555347575037,
+      "y": 4.236041669238861,
+      "z": 2.1275431036760644
+    }
+  },
+  "faces": [
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 0
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 1
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 6
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 7
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 8
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 9
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 10
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 11
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 12
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 13
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 14
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 15
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 16
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 17
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 18
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 19
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 20
+    },
+    {
+      "meshid": 32,
+      "meshindex": 1,
+      "faceindex": 21
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 1648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 2648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 3648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 4648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 5648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 6648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 7648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 8648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 9648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 10648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 11648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 12648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 13648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 14648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 15648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 16648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 17648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 18648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 19648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 20648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 21648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 22648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 23648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 24648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 25648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 26648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 27648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 28648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 29648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 30648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 31648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 32648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 33648
+    },
+    {
+      "meshid": 36,
+      "meshindex": 3,
+      "faceindex": 34648
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 28
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 40
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 63
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 71
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 73
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 1745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 2745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 3745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 4745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 5745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 6745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 7745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 8745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 9745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 10745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 11745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 12745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 13745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 14745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 15745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 16745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 17745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 18745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19526
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19661
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19729
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19732
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19743
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 19745
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20007
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20028
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20040
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20063
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20071
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20073
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20374
+    },
+    {
+      "meshid": 38,
+      "meshindex": 4,
+      "faceindex": 20526
+    },
+    {
+      "meshid": 42,
+      "meshindex": 6,
+      "faceindex": 41
+    }
+  ]
+}

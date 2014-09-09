@@ -1,132 +1,166 @@
 {
+  "camera": {
+    "camera": {
+      "x": 16.02644357470619,
+      "y": 15.134808983761072,
+      "z": -14.923294884975032
+    },
+    "target": {
+      "x": -1.514036996777971,
+      "y": 5.748885622546227,
+      "z": 1.941551836575481
+    }
+  },
   "faces": [
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 2
     },
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 3
     },
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 4
     },
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 5
     },
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 6
     },
     {
       "meshid": 40,
+      "meshindex": 5,
       "faceindex": 7
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 0
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 1
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 2
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 3
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 4
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 5
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 6
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 7
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 8
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 9
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 10
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 11
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 12
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 13
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 14
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 15
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 16
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 17
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 18
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 19
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 20
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 21
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 22
     },
     {
       "meshid": 54,
+      "meshindex": 12,
       "faceindex": 23
-    },
-    {
-      "meshid": 54,
-      "faceindex": 24
-    },
-    {
-      "meshid": 54,
-      "faceindex": 25
     }
   ]
 }

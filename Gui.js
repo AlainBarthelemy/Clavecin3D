@@ -9,8 +9,13 @@ function GUI(){
 		viewOne:"view-one",
 		viewTwo:"view-two",
 		viewThree:"view-three",
-		viewDeco:"view-deco"
+		viewDeco:"view-deco",
+		viewTech:"view-tech",
+		viewHisto:"view-histo",
+		changeMode:"change-mode"
 	};
+	this.modes = {tech:"tech-mode",elre:"elre-mode",histo:"histo-mode",none:"none"};
+	this.currentMode = this.modes.none;
 	this.EASING_TIME = 100;
     var scope = this;	
 	$(window).load(function() {
@@ -24,29 +29,79 @@ function GUI(){
 
 GUI.prototype.addEventsListeners = function(){
 	var scope = this;
-	$('#folder-toggle-btn').click(function(){
+/*	$('#folder-toggle-btn').click(function(){
 		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-up");
 		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-down");
-	});
+	});*/
 	$(document).on('click','#panel-primary #close-btn', function(event){
 		scope.closePanel($('#panel-primary'));
-		scope.deactivateAllDDBtn();
+		scope.closePanel($('#panel-secondary'));
+		scope.changeMode(scope.modes.none);
 	});
 	$(document).on('click','#panel-secondary #close-btn', function(event){
 		scope.closePanel($('#panel-secondary'));
-		scope.deactivateAllDDBtn();
-		$(".img-selected").removeClass("img-selected");
+		//scope.deactivateAllDDBtn();
+		if(scope.currentMode == scope.modes.elre)
+			$(".img-selected").removeClass("img-selected");
+		else
+			$(".link-selected").removeClass("link-selected");
 	});
-/*	$(document).on('ifToggled','#oiseaux-cb', function(event){
-		console.log("ok");	
-	});*/
+	
+	$('#technique-dd-btn').click(function(){
+			if(! $('#technique-dd-btn').hasClass("active")){
+/*				scope.changeActiveDDBtn($('#technique-dd-btn'));
+				scope.loadPrimaryContent("contents/technique/content.html");
+				scope.emitEvent(scope.events.changeMode,{newMode:scope.modes.tech});*/
+				scope.changeMode(scope.modes.tech);
+			}
+	});
+	$('#elre-dd-btn').click(function(){
+			if(! $('#elre-dd-btn').hasClass("active")){
+				//$('#technique-dd-btn').addClass("active");
+/*				scope.changeActiveDDBtn($('#elre-dd-btn'));
+				scope.loadPrimaryContent("contents/elre/content.html");
+				scope.emitEvent(scope.events.changeMode,{newMode:scope.modes.elre});*/
+				scope.changeMode(scope.modes.elre);
+			}
+	});
+	$('#histo-dd-btn').click(function(){
+			if(! $('#histo-dd-btn').hasClass("active")){
+				//$('#technique-dd-btn').addClass("active");
+/*				scope.changeActiveDDBtn($('#histo-dd-btn'));
+				scope.loadPrimaryContent("contents/histo/content.html");
+				scope.emitEvent(scope.events.changeMode,{newMode:scope.modes.histo});*/
+				scope.changeMode(scope.modes.histo);
+			}
+	});
+
+	// elre
 	$(document).on('click','.item',function(event){
 		if(!$(this).children().hasClass("img-selected")){
 			$(".img-selected").removeClass("img-selected");
 			$(this).children().addClass("img-selected");
-			scope.loadSecondaryContent("contents/elre/panel-secondary-img-container.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});
+			//dirty
+			scope.loadSecondaryContent("contents/elre/panel-secondary.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});
 			scope.emitEvent(scope.events.viewDeco,{"id":event.currentTarget.id});
-			console.log("id : "+event.currentTarget.id);
+		}
+	});
+	
+	// tech
+	$(document).on('click','.techItem',function(event){
+		if(!$(this).children().hasClass("link-selected")){
+			$(".link-selected").removeClass("link-selected");
+			$(this).addClass("link-selected");
+			scope.loadSecondaryContent("contents/technique/panel-secondary.php",{id:event.target.id,title:event.target.innerHTML});
+			scope.emitEvent(scope.events.viewTech,{id:event.target.id});
+		}
+	});
+	
+	// histo
+	$(document).on('click','.histoItem',function(event){
+		if(!$(this).children().hasClass("link-selected")){
+			$(".link-selected").removeClass("link-selected");
+			$(this).addClass("link-selected");
+			//TODO : load secondary contents
+			scope.emitEvent(scope.events.viewGisto,{id:event.target.id});
 		}
 	});
 	
@@ -91,21 +146,41 @@ GUI.prototype.addEventsListeners = function(){
 		scope.emitEvent(scope.events.viewThree);
 	});
 	
-	$('#technique-dd-btn').click(function(){
-			if(! $('#technique-dd-btn').hasClass("active")){
-				//$('#technique-dd-btn').addClass("active");
-				scope.changeActiveDDBtn($('#technique-dd-btn'));
-				scope.loadPrimaryContent("contents/technique/content.html");
-			}
-	});
-	$('#elre-dd-btn').click(function(){
-			if(! $('#elre-dd-btn').hasClass("active")){
-				//$('#technique-dd-btn').addClass("active");
-				scope.changeActiveDDBtn($('#elre-dd-btn'));
-				scope.loadPrimaryContent("contents/elre/content.html");
-			}
-	});
 };
+
+GUI.prototype.changeMode = function(newMode){
+	
+	switch(newMode){
+	 	case this.modes.tech:
+	 			this.currentMode = this.modes.tech;
+	 			this.changeActiveDDBtn($('#technique-dd-btn'));
+				this.loadPrimaryContent("contents/technique/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.tech});
+			break;
+		case this.modes.elre:
+				this.currentMode = this.modes.elre;
+				this.changeActiveDDBtn($('#elre-dd-btn'));
+				this.loadPrimaryContent("contents/elre/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.elre});
+			break;
+		case this.modes.histo:
+				this.currentMode = this.modes.histo;
+				this.changeActiveDDBtn($('#histo-dd-btn'));
+				this.loadPrimaryContent("contents/histo/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.histo});
+			break;
+		case this.modes.none:
+				this.currentMode = this.modes.none;
+				this.deactivateAllDDBtn();
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.none});
+			break;
+		default:
+			console.log("unkonwn mode");
+			break;
+		
+	}
+	
+}
 
 GUI.prototype.closePanel = function(element){
 	element.fadeOut(this.EASING_TIME);	
