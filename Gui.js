@@ -21,10 +21,10 @@ function GUI(){
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
-		//scope.changeActiveDDBtn($('#technique-dd-btn'));
-		//scope.loadPrimaryContent("contents/technique/content.html");
-		
-	});
+		//scope.changeActiveDDBtn($('#elre-dd-btn'));
+		//scope.loadPrimaryContent("contents/elre/content.html");
+			//$("#panel-secondary").draggable().resizable();
+		});
 }
 
 GUI.prototype.addEventsListeners = function(){
@@ -76,9 +76,9 @@ GUI.prototype.addEventsListeners = function(){
 
 	// elre
 	$(document).on('click','.item',function(event){
-		if(!$(this).children().hasClass("img-selected")){
+		if(!$(this).hasClass("img-selected")){
 			$(".img-selected").removeClass("img-selected");
-			$(this).children().addClass("img-selected");
+			$(this).addClass("img-selected");
 			//dirty
 			scope.loadSecondaryContent("contents/elre/panel-secondary.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});
 			scope.emitEvent(scope.events.viewDeco,{"id":event.currentTarget.id});
@@ -100,8 +100,8 @@ GUI.prototype.addEventsListeners = function(){
 		if(!$(this).children().hasClass("link-selected")){
 			$(".link-selected").removeClass("link-selected");
 			$(this).addClass("link-selected");
-			//TODO : load secondary contents
-			scope.emitEvent(scope.events.viewGisto,{id:event.target.id});
+			scope.loadSecondaryContent("contents/histo/panel-secondary.php",{id:event.target.id});
+			scope.emitEvent(scope.events.viewHisto,{id:event.target.id});
 		}
 	});
 	
@@ -225,11 +225,48 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	});*/
 	$.get( url, data ).done(function( data ) {
 			$("#panel-secondary").html(data);
-			//$("#panel-secondary").fadeIn(scope.EASING_TIME);
 	});
 }
 
 GUI.prototype.showPanelSecondary = function(){
+	this.resetDR();
 	$("#panel-secondary").fadeIn(this.EASING_TIME);	
+}
+
+GUI.prototype.resetDR = function(){
+	
+	var resizableOptions = {
+		resize: function(event, ui) {
+        ui.size.height = ui.originalSize.height;
+        },
+        aspectRatio: false,
+        minWidth: 460,
+        handles:"e"
+    }
+	
+	$('#panel-secondary').attr('style', '');
+	if (typeof $( "#panel-secondary" ).draggable("instance") != 'undefined')
+		$( "#panel-secondary" ).draggable("destroy")
+	if (typeof $( "#panel-secondary" ).resizable("instance") != 'undefined')
+		$( "#panel-secondary" ).resizable("destroy")
+	//$( "#panel-secondary" ).draggable("destroy").resizable( "destroy" );
+	switch(this.currentMode){
+	 	case this.modes.tech:
+	 		$("#panel-secondary").draggable();
+			break;
+		case this.modes.elre:
+			$("#panel-secondary").draggable().resizable(resizableOptions);
+			break;
+		case this.modes.histo:
+			$("#panel-secondary").draggable().resizable(resizableOptions);
+			break;
+		case this.modes.none:
+			break;
+		default:
+			console.log("unkonwn mode");
+			break;
+		
+	}
+	
 }
 

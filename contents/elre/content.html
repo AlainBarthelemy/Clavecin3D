@@ -24,13 +24,13 @@
 	  </div>
 	  
 	  <div class="thumb-grid">
-		<div id="deco1" class="item oiseau-thumb">
+		<div id="deco1" class="first-item item oiseau-thumb ">
 			<img src="contents/elre/thumbnails/1- Oiseau rabat couvercle 1.jpg" />
 		</div>
-		<div id="deco2" class="item oiseau-thumb">
+		<div id="deco2" class="item oiseau-thumb ">
 			<img src="contents/elre/thumbnails/1- Oiseau rabat couvercle 2.jpg" />
 		</div>
-		<div id="deco3" class="item arbrefleur-thumb">
+		<div id="deco3" class="item arbrefleur-thumb ">
 			<img src="contents/elre/thumbnails/1- Vase rabat couvercle.jpg" />
 		</div>
 		<div id="deco40" class="item arbrefleur-thumb">
@@ -157,11 +157,23 @@
 	  	$('input').iCheck({
 			checkboxClass: 'icheckbox_minimal-blue',
 			radioClass: 'iradio_minimal',
-			increaseArea: '20%' // optional
+			increaseArea: '30%' // optional
 		  });
 		$('.thumb-grid').ready(function(){
-					var options = {minMargin: 5, maxMargin: 15, itemSelector: ".item", firstItemClass: "first-item", resize:true};
-					setTimeout(function(){$(".thumb-grid").rowGrid(options);},300);
+					var options = {minMargin: 2, maxMargin: 2, itemSelector: ".item", firstItemClass: "first-item", resize:false};
+					setTimeout(function(){
+									//$(".thumb-grid").rowGrid(options);
+									//$(".thumb-grid").mason({
+									//	itemSelector: ".item",
+									//	ratio: 1.1,
+									//	sizes: [
+									//		[2,1]
+									//	]
+									//});
+									//$('.thumb-grid').photosetGrid({
+									//});
+									},300);
+									
 		});
 		
 		// Category filtering
@@ -210,6 +222,8 @@
 		// load Secondary content
 		
 		$('.item').click(function(){
+			//var options = {minMargin: 2, maxMargin: 2, itemSelector: ".item", firstItemClass: "first-item", resize:true};
+			//$(".thumb-grid").rowGrid(options);
 			//$(".img-selected").removeClass("img-selected");
 			//$(this).children().addClass("img-selected");
 			//console.log('item click');

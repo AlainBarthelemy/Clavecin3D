@@ -2,6 +2,7 @@
 @import url('fonts/DIN-Medium/din-medium.css');
 @import url('bootstrap/3.2.0/css/glyphicons.css');
 @import url('icheck/skins/minimal/blue.css');
+@import url('jquery/jquery-ui.min.css');
 
 body{
 	margin: 0px;
@@ -48,7 +49,8 @@ body{
 	color:#42ABED;
 	font-size:90px;	
 	margin-right: 120px;
-	margin-top: 40px
+	margin-top: 40px;
+	margin-left: 0px !important;
 	
 }
 .navbar-default .navbar-brand img{
@@ -102,7 +104,8 @@ body{
 	right:20px;
 	/*width:360px;
 	height:300px;*/
-	overflow:hidden;
+	/*overflow:hidden;*/
+	cursor: pointer;
 }
 
 .panel-custom{
@@ -128,6 +131,12 @@ body{
 	padding:5px;
 }
 .panel-custom .panel-body {
+}
+
+.capital{
+	color:#42ABED ;
+	font-size: 24px;
+	font-family: 'MinimumANoir';	
 }
 
 .tech-list a{
@@ -161,20 +170,27 @@ body{
 	border-color: #42ABED;
 		
 }
+.panel-custom .panel-body {
+	font-family: 'DINMedium';;	
+}
 
 .panel-custom .panel-body h1{
-	font-size: 30px;
-	font-weight:normal;
+	font-family: 'MinimumANoir';
+	font-size: 32px;
+	font-weight:400;
 	color:white;
 	background-color: #42ABED;
 	padding: 5px 10px;
 	margin-top:5px;
 }
 .panel-custom .panel-body .blue-section{
+	font-family: 'MinimumANoir';
 	color:white;
 	background-color: #42ABED;
 	padding: 5px 10px;
 	margin-top:5px;
+	font-size: 24px;
+	font-weight:400;
 }
 .panel-custom .btn-default{
 	border:none;
@@ -187,7 +203,10 @@ body{
 	background-color:white;	
 	color:black;
 }
-
+.credit{
+	font-size:12px;
+	text-align: left;	
+}
 /* checkboxes */
 
 .cb-label{
@@ -214,12 +233,22 @@ body{
 
 .thumb-grid .item {
   float: left;
-  margin-bottom: 10px; 
+  /*margin-bottom: 2px; */
+  background-color:black;
+  text-align:center;
+  overflow:hidden;
+  width:33%;
+  height:120px;
 }
 .thumb-grid .item img {
-  max-width: 100%;
-  max-height: 100%;
-  vertical-align: bottom;
+ /* max-height: 100%;
+  max-width:100%;*/
+  
+  position: relative; 
+    left: 100%; 
+    margin-left: -200%; 
+    /*top:100%;
+    margin-top:-200%;*/
 }
 .thumb-grid .first-item {
   clear: both;

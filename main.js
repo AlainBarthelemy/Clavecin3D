@@ -47,6 +47,9 @@ var container, stats;
 			var decoCoordinates = [];
 			loadDecoCoordinates();
 			
+			var histoCoordinates = [];
+			loadHistoCoordinates();
+			
 			var techElements = {};
 			loadTechElements();
 			
@@ -285,7 +288,7 @@ var container, stats;
 				
 
 				window.addEventListener( 'resize', onWindowResize, false );
-
+				window.addEventListener( 'keydown', onKeyDown, false );
 
 			}
 
@@ -299,6 +302,23 @@ var container, stats;
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
+			}
+			
+			function onKeyDown(event){
+				if(event.keyCode==68)
+					console.log(
+						{
+							"camera":{
+								"x":camera.position.x,
+								"y":camera.position.y,
+								"z":camera.position.z
+							},
+							"target":{
+								"x":cameraControls.target.x,
+								"y":cameraControls.target.y,
+								"z":cameraControls.target.z
+							}
+					});
 			}
 
 			
@@ -375,6 +395,10 @@ var container, stats;
 					selectElement(event.detail.id);
 					autoMove(coordinates.camera,coordinates.target,true);
 				});
+				document.addEventListener(gui.events.viewHisto,function(event){
+					var coordinates = idToHistoCoordinates(event.detail.id);
+					autoMove(coordinates.camera,coordinates.target,true);
+				});
 				document.addEventListener(gui.events.changeMode,function(event){
 					
 					switch (gui.currentMode){
@@ -424,6 +448,7 @@ var container, stats;
 					},1000).easing(TWEEN.Easing.Exponential.Out).onUpdate(function () {
 						//cameraControls.target.set(targetDest.x, targetDest.y, targetDest.z);
 						//cameraControls.update();
+						//console.log({camera:camera.position,target:cameraControls.target});
 					}).onComplete(function () {
 						if(showPanelSecondary)
 							gui.showPanelSecondary();
@@ -474,6 +499,12 @@ var container, stats;
 					decoCoordinates = data.coordinates;
 				});	
 			}
+			function loadHistoCoordinates(){
+				
+				$.getJSON( "contents/histo/coordinates.json", function( data ) {
+					histoCoordinates = data.coordinates;
+				});	
+			}
 			
 			function idToDecoCoordinates(id){
 				var result = $.grep(decoCoordinates, function(e){ return e.id == id; });
@@ -488,7 +519,19 @@ var container, stats;
 				  return result;
 				}
 			}
-			
+			function idToHistoCoordinates(id){
+				var result = $.grep(histoCoordinates, function(e){ return e.id == id; });
+				if (result.length == 0) {
+				  // not found
+				  return -1;
+				} else if (result.length == 1) {
+				  // access the foo property using result[0].foo
+				  return result[0];
+				} else {
+				  // multiple items found
+				  return result;
+				}
+			}
 			
 			function loadTechElements(){
 				
