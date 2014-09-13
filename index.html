@@ -13,15 +13,15 @@
         <script src="jquery/jquery-1.11.0.min.js"></script>
         <script src="bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<!-- BOOTFLAT -->
-		<script src="bootflat/js/icheck.min.js"></script>
+		<script src="bootflat/js/icheck.js"></script>
         <script src="bootflat/js/jquery.fs.selecter.min.js"></script>
         <script src="bootflat/js/jquery.fs.stepper.min.js"></script>
         <!-- rowGrid -->
-        <!--<script src="jquery/jquery.row-grid.js"></script>
-        <script src="jquery/mason.min.js"></script>
-        <script src="jquery/jquery.photoset-grid.js"></script>-->
         <script src="jquery/jquery-ui.min.js"></script>
+        <script src="jquery/jquery.ui.touch-punch.min.js"></script>
+        <!--<script src="jquery/jquery.touch_box.js"></script>-->
 		
+        <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no" />
 		
 		
 
@@ -83,17 +83,21 @@
                         <li class="dropdown">
                           <a id="elre-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture menu-icon"></span><span class="menu-title">Iconographie</span></a>
                         </li>
+                        <li class="dropdown">
+                          <a id="info-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-info-sign menu-icon" style="top:2px"></span><span class="menu-title">Info</span></a>
+                        </li>
                       </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
                 </nav>
 			<div id="panel-primary" class="panel panel-custom" style="display:none;"></div>
 			<div id="panel-secondary" class="panel panel-custom" style="display:none;"></div>
+			<div id="panel-tertiary" class="panel panel-custom" style="display:none;"></div>
 			<div id="model-controls">
 				<div class="btn-group-vertical">
 					  <a id="zoom-in-btn" type="button" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-plus"></i></a>
-					  <button id="move-btn" type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-move"></i></button>
-					  <button id="rotate-btn" type="button" class="btn btn-primary btn-lg"><i class="glyphicon glyphicon-repeat"></i></button>
+					  <a id="move-btn" type="button" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-move"></i></a>
+					  <a id="rotate-btn" type="button" class="btn btn-primary btn-lg" role="button"><i class="glyphicon glyphicon-repeat"></i></a>
 					  <a id="zoom-out-btn" type="button" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-minus"></i></a>
 				</div>
 			</div>

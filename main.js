@@ -13,6 +13,9 @@ var container, stats;
 			var NEAR = 1;
 			var FAR = 500;
 			var cameraControls;
+			
+			var SNAP_TIME = 60*1000;
+			var RELOAD_TIME = 10*60*1000;
 
 
 			var windowHalfX = window.innerWidth / 2;
@@ -53,9 +56,12 @@ var container, stats;
 			var techElements = {};
 			loadTechElements();
 			
-
+			
+			
 			init();
 			animate();
+			
+			//haveaNapIfnoSnap();
 
 
 			function init() {
@@ -67,10 +73,10 @@ var container, stats;
 				renderer.setSize( WIDTH, HEIGHT );
 				container.appendChild( renderer.domElement );
 				
-				stats = new Stats();
+				/*stats = new Stats();
 				stats.domElement.style.position = 'absolute';
 				stats.domElement.style.top = '0px';
-				container.appendChild( stats.domElement );
+				container.appendChild( stats.domElement );*/
 
 
 				// CAMERA
@@ -85,6 +91,8 @@ var container, stats;
 				cameraControls.minDistance = 1;
 				cameraControls.noKeys = false;
 				cameraControls.autoRotate = false;
+				cameraControls.autoRotateSpeed = 0.5;
+				cameraControls.zoomSpeed = 0.15;
 				cameraControls.update();
 				
 				// SCENE
@@ -232,7 +240,7 @@ var container, stats;
 						
 						volObject.add( volMesh );
 							
-						console.log("mesh id : "+volMesh.id+" mesh name : "+volMesh.name);
+						//console.log("mesh id : "+volMesh.id+" mesh name : "+volMesh.name);
 						
 
 						// create wf model from child geometry 
@@ -330,7 +338,7 @@ var container, stats;
 				requestAnimationFrame( animate );
 				render();
 				cameraControls.update();
-				stats.update();
+				//stats.update();
 
 			}
 
@@ -346,10 +354,10 @@ var container, stats;
 			function addGUIEventListeners(){
 				
 				document.addEventListener(gui.events.zoomIn,function(event){
-						cameraControls.dollyOut();
+						cameraControls.dollyOut(Math.pow( 0.95, 2));
 				});	
 				document.addEventListener(gui.events.zoomOut,function(event){
-						cameraControls.dollyIn();
+						cameraControls.dollyIn(Math.pow( 0.95, 2));
 				});	
 				document.addEventListener(gui.events.setRotateMode,function(event){
 						cameraControls.mode = cameraControls.MODE.ROTATE;
@@ -409,6 +417,8 @@ var container, stats;
 						break;
 						case gui.modes.histo :
 						break;
+						case gui.modes.info :
+						break;
 						case gui.modes.none : 
 						break;
 						default:break;
@@ -423,6 +433,10 @@ var container, stats;
 							switchToRenderMode(renders.textured);
 						break;
 						case gui.modes.histo :
+							resetPosition();
+							switchToRenderMode(renders.textured);
+						break;
+						case gui.modes.info :
 							resetPosition();
 							switchToRenderMode(renders.textured);
 						break;
@@ -450,8 +464,10 @@ var container, stats;
 						//cameraControls.update();
 						//console.log({camera:camera.position,target:cameraControls.target});
 					}).onComplete(function () {
-						if(showPanelSecondary)
+						if(showPanelSecondary){
 							gui.showPanelSecondary();
+							gui.showPanelTertiary();	
+						}
 					}).start();
 					var tweenTarget = new TWEEN.Tween(cameraControls.target).to({
 						x: targetDest.x,
@@ -613,3 +629,65 @@ var container, stats;
 				
 			}
 
+			function haveaNapIfnoSnap(){
+				
+				var idleTime = 0;
+				var dosing = false;
+				var intervalHandle = window.setInterval(function(){
+					idleTime +=1000;
+					if(idleTime >= SNAP_TIME && !dosing)
+						makeaNap();
+					
+					if(idleTime >= RELOAD_TIME)
+						location.reload();
+					//else if(idleTime < SNAP_TIME && dosing)
+						//wakeUp();
+				},1000);
+				
+				window.onmousemove = function (e) {
+					idleTime = 0;
+					if(dosing)
+						wakeUp();
+				};
+				window.onkeypress = function (e) {
+					idleTime = 0;
+					if(dosing)
+						wakeUp();
+				};
+				window.ontouchmove = function (e) {
+					idleTime = 0;
+					if(dosing)
+						wakeUp();
+				};
+				window.ontouchstart = function (e) {
+					idleTime = 0;
+					if(dosing)
+						wakeUp();
+				};
+				
+				function makeaNap(){
+					dosing = true;
+					console.log("nap");	
+					
+					$('#main-nav').addClass('mini-navbar');
+					$('.navbar-brand').addClass('mini-brand');
+					cameraControls.autoRotate = true;
+					
+					$(document).focus();
+					gui.closePanel($('#panel-primary'));
+					gui.closePanel($('#panel-secondary'));
+					gui.changeMode(gui.modes.none);
+					resetPosition();
+				}
+				function wakeUp(){
+					dosing = false;
+					console.log("wake");
+					
+					$('#main-nav').removeClass('mini-navbar');
+					$('.navbar-brand').removeClass('mini-brand');
+					cameraControls.autoRotate = false;
+				}
+				
+				
+				
+			}

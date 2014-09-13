@@ -7,7 +7,6 @@
 	</div>
 	</h3>
   </div>
-  <div class="panel-body secondary-full-img">
-  	<!--<?php echo file_get_contents($_GET["id"].".html"); ?>-->
-  	<img src='contents/histo/1920x1080/<?php echo $_GET["id"]; ?>.jpg'>
+  <div class="panel-body">
+  	<?php echo file_get_contents($_GET["id"].".html"); ?>
   </div>

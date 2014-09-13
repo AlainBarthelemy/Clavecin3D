@@ -524,13 +524,19 @@ THREE.OrbitCustomControls = function ( object, domElement ) {
 		switch ( event.touches.length ) {
 
 			case 1:	// one-fingered touch: rotate
+				
+				if(scope.mode === scope.MODE.ROTATE){
+					if ( scope.noRotate === true ) return;
+					state = STATE.TOUCH_ROTATE;
+					rotateStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+					break;
+				}else if(scope.mode === scope.MODE.PAN){
+					if ( scope.noPan === true ) return;
+					state = STATE.TOUCH_PAN;
+					panStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+					break;
+				}
 
-				if ( scope.noRotate === true ) return;
-
-				state = STATE.TOUCH_ROTATE;
-
-				rotateStart.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
-				break;
 
 			case 2:	// two-fingered touch: dolly
 
@@ -575,22 +581,43 @@ THREE.OrbitCustomControls = function ( object, domElement ) {
 		switch ( event.touches.length ) {
 
 			case 1: // one-fingered touch: rotate
+				
+				if(scope.mode === scope.MODE.ROTATE){
+					
+					if ( scope.noRotate === true ) return;
+					if ( state !== STATE.TOUCH_ROTATE ) return;
+	
+					rotateEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+					rotateDelta.subVectors( rotateEnd, rotateStart );
+	
+					// rotating across whole screen goes 360 degrees around
+					scope.rotateLeft( 2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );
+					// rotating up and down along whole screen attempts to go 360, but limited to 180
+					scope.rotateUp( 2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
+	
+					rotateStart.copy( rotateEnd );
+	
+					scope.update();
+					break;
+					
+					
+				}else if(scope.mode === scope.MODE.PAN){
+					
+					if ( scope.noPan === true ) return;
+					if ( state !== STATE.TOUCH_PAN ) return;
+	
+					panEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
+					panDelta.subVectors( panEnd, panStart );
+					
+					scope.pan( panDelta.x, panDelta.y );
+	
+					panStart.copy( panEnd );
+	
+					scope.update();
+					break;
+					
+				}
 
-				if ( scope.noRotate === true ) return;
-				if ( state !== STATE.TOUCH_ROTATE ) return;
-
-				rotateEnd.set( event.touches[ 0 ].pageX, event.touches[ 0 ].pageY );
-				rotateDelta.subVectors( rotateEnd, rotateStart );
-
-				// rotating across whole screen goes 360 degrees around
-				scope.rotateLeft( 2 * Math.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );
-				// rotating up and down along whole screen attempts to go 360, but limited to 180
-				scope.rotateUp( 2 * Math.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
-
-				rotateStart.copy( rotateEnd );
-
-				scope.update();
-				break;
 
 			case 2: // two-fingered touch: dolly
 
