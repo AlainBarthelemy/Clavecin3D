@@ -231,7 +231,7 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	var scope = this;
 	$("#panel-tertiary").hide();
 	$("#panel-secondary").hide();
-	if(this.currentMode == this.modes.elre)
+	if(this.currentMode == this.modes.elre || this.currentMode == this.modes.histo)
 		$("#panel-secondary").addClass('panel-large');
 	else
 		$("#panel-secondary").removeClass('panel-large')

@@ -466,7 +466,8 @@ var container, stats;
 					}).onComplete(function () {
 						if(showPanelSecondary){
 							gui.showPanelSecondary();
-							gui.showPanelTertiary();	
+							if(gui.currentMode == gui.modes.elre)
+								gui.showPanelTertiary();	
 						}
 					}).start();
 					var tweenTarget = new TWEEN.Tween(cameraControls.target).to({
