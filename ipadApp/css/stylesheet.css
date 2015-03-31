@@ -1,0 +1,340 @@
+/**@import "fonts/Minimum-ANoir/minimum-anoir.css";**/
+@import "fonts/Aaargh/aaargh.css";
+@import "fonts/MinionPro/minionpro.css";
+
+body {
+	background: black;
+	/*font-family:aaarghnormal;*/
+	font-family:MinionPro-Regular;
+	font-size:21px;
+	line-height: 27px;
+}
+
+#viewLayer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: transparent;
+	z-index: 15;
+}
+
+#viewCan {
+	z-index: 10;
+}
+
+#images {
+	display:none;
+}
+
+/**HOMEIMAGE**/
+#homeimage, #rideau {
+	position: fixed;
+	top:0;
+	bottom:0;
+	left: 0;
+	right:0;
+	z-index: 100;
+	transition: all 0.35s ease;
+}
+
+#rideau {
+	opacity: 0.95;
+	background-color: black;
+	z-index: 19;
+}
+
+#homeimage.closed, #rideau.closed {
+	top: -768px;
+	bottom: 768px;
+	opacity: 0;
+}
+
+#homelink {
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: pointer;
+}
+
+
+/** SIDEBAR **/
+#sidebar {
+	color: #CBA952;
+  	background: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	padding:10px 20px;	
+  	width: 250px;
+  	transition: left 0.25s ease;
+  	z-index: 30;
+}
+
+#sidebar.closed {
+	left: -260px;
+}
+
+#sidebar div {
+	margin: 46px 2px;
+}
+
+#menubutton {
+	position: absolute;
+	top: 73px;
+	right: -71px;
+	width: 71px;
+	z-index: 35;
+}
+
+#menuline {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.menulink {
+	font-size: 23px;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: pointer;
+}
+
+.menulink.active {
+	color: white;
+}
+
+/** ZOOM CTRL **/
+#zoomctrl {
+	position: fixed;
+	bottom: 103px;
+	right: 20px;
+	background: transparent;
+	z-index: 20;
+}
+
+#zoomctrl img {
+	width: 71px;
+	
+}
+
+#zoominbtn {
+}
+
+#zoomoutbtn {
+	position: absolute;
+	left: -55px;
+	top: 32px;
+}
+
+.movebtn {
+	left: -55px;
+    position: absolute;
+    top: -33px;
+}
+
+/** INFO WINDOW **/
+#infocontainer {
+	position: fixed;
+	top: -9px;
+	right: -500px;
+	background: transparent;
+	z-index: 18;
+}
+
+#infowin, #nextbtn, #titlewin {
+	position: relative;
+	top: 0px;
+	margin-top: 10px;
+	left: -520px;
+	background: black;
+	width: 400px;
+	z-index: 19;
+	overflow: hidden;
+	padding: 8px;
+	color: #BBB;
+	transition: left 0.4s ease;
+	border: 0px solid #CBA952;
+	z-index: 18;
+}
+
+#titlewin {
+	padding: 8px;
+	color: #CBA952;
+}
+
+#infowin.closed, #nextbtn.closed {
+	left: 0px;
+}
+
+#nextbtn {
+	color: #CBA952;
+	border: 1px solid #CBA952;
+	text-align: center;
+}
+
+
+/** LEGENDBAR **/
+#legendbar {
+	color: #BBB;
+  	background: black;
+	position: fixed;
+	right: 175px;
+	left: 200px;
+	bottom: 0px;
+	padding: 10px;	
+  	transition: all 0.5s ease;
+  	z-index: 12;
+  	text-align: center;
+}
+
+#legendbar.closed {
+	bottom: -200px;
+}
+
+
+/** HELP WINDOW **/
+#helpwin {
+	position: fixed;
+	bottom: 179px;
+	right: 98px;
+	background: transparent;
+	z-index: 18;
+}
+
+#helpdetails {
+	width: 760px;
+	height: 185px;
+	background: black;
+	border: 1px solid #CBA952;
+	color: #BBB;
+	padding: 20px;
+	overflow: hidden;
+	transition: all 0.6s ease;
+}
+
+#helpwin.closed #helpdetails {
+	width: 0px;
+	height: 0px;
+	padding: 0px;
+	border: 0px solid #CBA952;
+}
+
+#helpdetails h3 {
+	text-align: center;
+	margin: 0px;
+}
+
+#helpbutton {
+	position: fixed;
+	right: 80px;
+	bottom: 149px;
+	width: 71px;
+	transition: all 0.3s ease;
+	z-index: 18;
+}
+
+#helpwin.closed #helpbutton {
+	bottom: 47px;
+    right: 20px;
+}
+
+
+#temp, #resetbtn{
+	display:none;
+}
+
+
+/**DIAPORAMA**/
+#diapocontainer, #creditscontainer {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background: transparent;
+	z-index: 22;
+	transition: all 0.3s ease;
+	border: 0px solid #CBA952;
+	opacity:1;
+}
+
+#diapocontainer.closed, #creditscontainer.closed  {
+	right: -1024px;
+	left: 1024px;
+	opacity:0;
+}
+
+#diapoback, #creditsback {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: black;
+	opacity: 0.9;
+	z-index: 22;
+}
+
+#diapocontent0, #diapocontent1, #diapocontent2, #creditscontent  {
+	border: 0px solid white;
+	top: 0;
+	left: 100px;
+	bottom: 0;
+	right: 0;
+	color: #BBB;
+	z-index: 23;
+	position: absolute;
+}
+
+.diapositive {
+	opacity: 0;
+}
+
+.diapositive.opened {
+	opacity:1;
+}
+
+.diapositive.diapo {
+	transition: opacity 1s ease;
+}
+
+.diapotitle {
+	border: 0 solid white;
+    color: #bbb;
+    font-size: 22px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.diapocomment {
+	border: 0 solid white;
+    color: #bbb;
+    text-align: center;
+    position: absolute;
+    text-align: center;
+    top: 670px;
+    left: 50%;
+    height: 50px;
+    width: 800px;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+}
+
+.diapo {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    color: white;
+    height: 600px;
+    left: 50%;  
+    position: absolute;
+    text-align: center;
+    top: 55px;
+    transform: translate(-50%, 0%);
+    -webkit-transform: translate(-50%, 0%);
+    width: auto;
+}

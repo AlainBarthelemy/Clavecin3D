@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="hemisphere-project.com">
+
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+    <title>Canvas Drawer App</title>
+  </head>
+
+  <body>
+
+ 	<!--HOME IMAGE-->
+ 	<img id="homeimage" src="./style/homescreen.jpg" class="" />
+	
+	<!-- SIDEMENU -->
+	<nav id="sidebar" class="navigation closed">
+		<img src="style/menubtn.png" id="menubutton" />
+		<img id="menuline" src="style/menuline.png" height="768px" />
+		<h2 id="homelink">CLAVECIN</h2>
+		<div id="menu_content"></div>
+		
+	</nav>
+		
+	<!-- CANVAS WRAPPER -->
+    <div id="viewLayer"></div>
+    <canvas id="viewCan"></canvas>
+    <canvas id="renderCan" style="display:none"></canvas>
+    <canvas id="bufferCan" style="display:none"></canvas>
+    <canvas id="sourceCan" style="display:none"></canvas>
+	
+	<!-- ZOOM CONTROLS -->
+    <div id="zoomctrl">
+    	<img src="style/movebtn.png" id="movebtn1" class="movebtn"/>
+    	<img src="style/movebtn2.png" id="movebtn2" class="movebtn" style="display:none" />
+    	<img src="style/zoomoutbtn.png" id="zoomoutbtn"/>
+    	<img src="style/zoominbtn.png" id="zoominbtn"/>	
+    </div>
+
+    <!-- INFO WINDOW -->
+    <div id="infocontainer">
+        <div id="titlewin">Titre etape</div>
+   		<div id="infowin" class="closed"></div>
+    	<div id="nextbtn" class="closed">image scientifique suivante >></div>
+    </div>
+
+    <!-- DIAPO WINDOW -->
+    <div id="diapocontainer" class="container closed">
+   		<div id="diapoback"></div>
+    	<div id="diapocontent0"></div>
+        <div id="diapocontent1"></div>
+        <div id="diapocontent2"></div>
+    </div>
+
+    <!-- CREDITS WINDOW -->
+    <div id="creditscontainer" class="container closed">
+        <div id="creditsback"></div>
+        <div id="creditscontent"></div>
+    </div>
+
+    <!-- LEGEND BAR -->
+    	<div id="legendbar" class="closed"></div>
+    
+	
+	<!-- HELP WINDOW -->
+    <div id="helpwin">
+    	<img src="style/infobtn.png" id="helpbutton"/>
+    	<div id="helpdetails">
+    		<span>
+				<h3>Mode d'emploi</h3><br />
+				Effacez l’écran à l’aide de votre doigt
+				pour faire apparaitre les étapes de la
+				restauration.<br />
+				Cliquez sur le bouton <img src="style/menubtn.png" width="20px" /> afin d’afficher le menu déroulant.<br />
+				Cliquez sur les boutons <img src="style/zoominbtn.png" width="20px" />  et 
+				<img src="style/zoomoutbtn.png" width="20px" /> pour zoomer et dézoomer.<br />
+				<!--Activez le bouton <img src="style/movebtn.png" width="20px" /> pour vous
+				déplacer dans l’image.<br />-->
+				<br />Bonne visite virtuelle !
+			</span>
+		</div>
+    </div>	
+
+
+    <!--RIDEAU-->
+    <div id="rideau" class="closed"></div>
+
+    <!-- UTILS -->
+    <div id="temp"></div>
+    <div id="resetbtn"></div>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/brushtools.js"></script>
+    <script src="js/candrawer.js"></script>
+    <script src="js/idle-timer.min.js"></script>
+    <script src="js/navigate.js"></script>
+    <script src="js/jgestures.min.js"></script>
+
+  </body>
+</html>
+

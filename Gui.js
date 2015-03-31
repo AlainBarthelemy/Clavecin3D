@@ -14,10 +14,16 @@ function GUI(){
 		viewHisto:"view-histo",
 		changeMode:"change-mode"
 	};
-	this.modes = {tech:"tech-mode",elre:"elre-mode",histo:"histo-mode",info:"info",none:"none"};
+	this.modes = {
+		tech:"tech-mode",
+		elre:"elre-mode",
+		histo:"histo-mode",
+		info:"info",
+		none:"none"
+	};
 	this.currentMode = this.modes.none;
 	this.EASING_TIME = 300;
-    var scope = this;	
+	var scope = this;	
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
@@ -62,6 +68,7 @@ GUI.prototype.addEventsListeners = function(){
 		scope.closePanel($('#panel-tertiary'));
 	});
 	
+	// menu buttons
 	$('#technique-dd-btn').click(function(){
 			if(! $('#technique-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.tech);
@@ -83,6 +90,7 @@ GUI.prototype.addEventsListeners = function(){
 			}
 	});
 
+	// pop up items
 	// elre
 	$(document).on('click','.item',function(event){
 		if(!$(this).hasClass("img-selected")){
@@ -148,7 +156,7 @@ GUI.prototype.addEventsListeners = function(){
 			scope.emitEvent(scope.events.setRotateMode);
 		}
 	});	
-	$('#view-one-btn').click(function(){
+	/*$('#view-one-btn').click(function(){
 		scope.emitEvent(scope.events.viewOne);
 	});
 	$('#view-two-btn').click(function(){
@@ -156,7 +164,7 @@ GUI.prototype.addEventsListeners = function(){
 	});
 	$('#view-three-btn').click(function(){
 		scope.emitEvent(scope.events.viewThree);
-	});
+	});*/
 	
 };
 
@@ -193,7 +201,7 @@ GUI.prototype.changeMode = function(newMode){
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.none});
 			break;
 		default:
-			console.log("unkonwn mode");
+			console.log("unknown mode");
 			break;
 		
 	}
@@ -291,6 +299,7 @@ GUI.prototype.showPanelSecondary = function(){
 	$("#panel-secondary").fadeIn(this.EASING_TIME);	
 }
 
+// reset draggable popup ?
 GUI.prototype.resetDR = function(){
 	
 	var resizableOptions = {
