@@ -6,9 +6,6 @@ function GUI(){
 		zoomOut:"zoom-out",
 		setRotateMode:"set-rotate-mode",
 		setPanMode:"set-pan-mode",
-		viewOne:"view-one",
-		viewTwo:"view-two",
-		viewThree:"view-three",
 		viewDeco:"view-deco",
 		viewTech:"view-tech",
 		viewHisto:"view-histo",
@@ -18,6 +15,8 @@ function GUI(){
 		tech:"tech-mode",
 		elre:"elre-mode",
 		histo:"histo-mode",
+		resto:"resto-mode",
+		ipad:"ipad-mode",
 		info:"info",
 		none:"none"
 	};
@@ -84,6 +83,16 @@ GUI.prototype.addEventsListeners = function(){
 				scope.changeMode(scope.modes.histo);
 			}
 	});
+	$('#resto-dd-btn').click(function(){
+			if(! $('#resto-dd-btn').hasClass("active")){
+				scope.changeMode(scope.modes.resto);
+			}
+	});
+	$('#ipad-dd-btn').click(function(){
+			if(! $('#ipad-dd-btn').hasClass("active")){
+				scope.changeMode(scope.modes.ipad);
+			}
+	});
 	$('#info-dd-btn').click(function(){
 			if(! $('#info-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.info);
@@ -122,6 +131,15 @@ GUI.prototype.addEventsListeners = function(){
 			$(this).addClass("link-selected");
 			scope.loadSecondaryContent("contents/histo/panel-secondary.php",{id:event.target.id});
 			scope.emitEvent(scope.events.viewHisto,{id:event.target.id});
+		}
+	});
+	
+	// resto
+	$(document).on('click','.restoItem',function(event){
+		if(!$(this).children().hasClass("link-selected")){
+			$(".link-selected").removeClass("link-selected");
+			$(this).addClass("link-selected");
+			scope.loadImageOverlay(event.target.id);
 		}
 	});
 	
@@ -189,6 +207,18 @@ GUI.prototype.changeMode = function(newMode){
 				this.loadPrimaryContent("contents/histo/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.histo});
 			break;
+		case this.modes.resto:
+				this.currentMode = this.modes.resto;
+				this.changeActiveDDBtn($('#resto-dd-btn'));
+				this.loadPrimaryContent("contents/resto/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.resto});
+			break;
+		case this.modes.ipad:
+				this.currentMode = this.modes.ipad;
+				this.changeActiveDDBtn($('#ipad-dd-btn'));
+				this.loadPrimaryContent("contents/ipad/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.ipad});
+			break;
 		case this.modes.info:
 				this.currentMode = this.modes.histo;
 				this.changeActiveDDBtn($('#info-dd-btn'));
@@ -234,6 +264,13 @@ GUI.prototype.loadPrimaryContent = function(url){
 	$("#panel-tertiary").hide();
 	$("#panel-secondary").hide();
 	$("#panel-primary").hide();
+	
+	if(this.currentMode == this.modes.resto){
+		$("#panel-primary").addClass("panel-resto");	
+	}else{
+		$("#panel-primary").removeClass("panel-resto");
+	}
+	
 	var scope = this;
 	$("#panel-primary").load(url, function(){
 		// load complete
@@ -260,6 +297,14 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 			$("#panel-secondary").addClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
 			break;
+		case this.modes.resto:
+	 		$("#panel-secondary").removeClass('panel-large');
+	 		$("#panel-secondary").removeClass('panel-elre');
+			break;
+		case this.modes.ipad:
+	 		$("#panel-secondary").removeClass('panel-large');
+	 		$("#panel-secondary").removeClass('panel-elre');
+	 		break;
 		case this.modes.info:
 			$("#panel-secondary").removeClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
@@ -298,6 +343,13 @@ GUI.prototype.showPanelSecondary = function(){
 	this.resetDR();
 	$("#panel-secondary").fadeIn(this.EASING_TIME);	
 }
+
+// for resto
+GUI.prototype.loadImageOverlay = function(id){
+	$(".resto-img").addClass("hidden");
+	$("#"+id+"-img").removeClass("hidden");
+}
+
 
 // reset draggable popup ?
 GUI.prototype.resetDR = function(){

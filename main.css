@@ -143,6 +143,9 @@ body{
 	border-width: 0;
 	border-radius: 0;
 }
+.panel-resto{
+	width:550px;	
+}
 .panel-large{
 	width:560px;
 }
@@ -175,6 +178,9 @@ body{
 	color:#42ABED ;
 	font-size: 24px;
 	font-family: 'MinimumANoir';	
+}
+.bigger{
+	font-size: 32px;
 }
 
 .tech-list a{
@@ -329,3 +335,15 @@ body{
 	color:	#42ABED;
 	font-size: 22px;
 }
+
+/* resto img */
+#resto-img-container{
+	
+}
+.resto-img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;	
+}
+

@@ -61,7 +61,7 @@ loadTechElements();
 init();
 animate();
 
-haveaNapIfnoSnap();
+//haveaNapIfnoSnap();
 
 
 function init() {
@@ -403,6 +403,10 @@ function addGUIEventListeners(){
 			break;
 			case gui.modes.histo :
 			break;
+			case gui.modes.resto :
+			break;
+			case gui.modes.ipad :
+			break;
 			case gui.modes.info :
 			break;
 			case gui.modes.none : 
@@ -419,6 +423,14 @@ function addGUIEventListeners(){
 				switchToRenderMode(renders.textured);
 			break;
 			case gui.modes.histo :
+				resetPosition();
+				switchToRenderMode(renders.textured);
+			break;
+			case gui.modes.resto :
+				resetPosition();
+				switchToRenderMode(renders.textured);
+			break;
+			case gui.modes.ipad :
 				resetPosition();
 				switchToRenderMode(renders.textured);
 			break;
