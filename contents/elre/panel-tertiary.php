@@ -8,5 +8,5 @@
 	</h3>
   </div>
   <div class="panel-body">
-  	<?php echo file_get_contents($_GET["id"].".html"); ?>
+  	<?php echo file_get_contents("texts/".$_GET["id"].".html"); ?>
   </div>

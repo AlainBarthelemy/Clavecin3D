@@ -14,7 +14,7 @@ var container, stats;
 			var FAR = 500;
 			var cameraControls;
 			
-			var SNAP_TIME = 60*1000;
+			var SNAP_TIME = 20*1000;
 			var RELOAD_TIME = 10*60*1000;
 
 
@@ -61,7 +61,7 @@ var container, stats;
 			init();
 			animate();
 			
-			//haveaNapIfnoSnap();
+			haveaNapIfnoSnap();
 
 
 			function init() {
@@ -466,8 +466,8 @@ var container, stats;
 					}).onComplete(function () {
 						if(showPanelSecondary){
 							gui.showPanelSecondary();
-							if(gui.currentMode == gui.modes.elre)
-								gui.showPanelTertiary();	
+							//if(gui.currentMode == gui.modes.elre)
+								//gui.showPanelTertiary();	
 						}
 					}).start();
 					var tweenTarget = new TWEEN.Tween(cameraControls.target).to({
@@ -674,11 +674,14 @@ var container, stats;
 					$('.navbar-brand').addClass('mini-brand');
 					cameraControls.autoRotate = true;
 					
-					$(document).focus();
+					
 					gui.closePanel($('#panel-primary'));
 					gui.closePanel($('#panel-secondary'));
+					gui.closePanel($('#panel-tertiary'));
 					gui.changeMode(gui.modes.none);
 					resetPosition();
+					
+					$(document).focus();
 				}
 				function wakeUp(){
 					dosing = false;

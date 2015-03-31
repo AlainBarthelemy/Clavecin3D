@@ -21,6 +21,13 @@ function GUI(){
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
+		// hack for touch resize
+		document.getElementById("panel-secondary" ).addEventListener( 'touchmove', touchmove, false );
+		
+		// no context menu
+		$(window).on('contextmenu', function(event){
+				event.preventDefault();
+		});
 		//scope.changeActiveDDBtn($('#info-dd-btn'));
 		//scope.loadPrimaryContent("contents/info/content.html");
 		
@@ -83,7 +90,7 @@ GUI.prototype.addEventsListeners = function(){
 			$(this).addClass("img-selected");
 			//dirty --> watch out buggy
 			var filename = event.target.src.substring(event.target.src.lastIndexOf('/')+1);
-			scope.loadSecondaryContent("contents/elre/panel-secondary.php",{imgsrc:"contents/elre/1920x1080/"+filename});
+			scope.loadSecondaryContent("contents/elre/panel-secondary.php",{imgsrc:"contents/elre/1920x1080/"+filename,"id":event.currentTarget.id});
 			scope.loadTertiaryContent("contents/elre/panel-tertiary.php",{"id":event.currentTarget.id});
 			//scope.loadSecondaryContent("contents/elre/panel-secondary.php",{imgsrc:event.target.src.replace("thumbnails","1920x1080")});
 			scope.emitEvent(scope.events.viewDeco,{"id":event.currentTarget.id});
@@ -231,10 +238,36 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	var scope = this;
 	$("#panel-tertiary").hide();
 	$("#panel-secondary").hide();
-	if(this.currentMode == this.modes.elre || this.currentMode == this.modes.histo)
-		$("#panel-secondary").addClass('panel-large');
-	else
-		$("#panel-secondary").removeClass('panel-large')
+	
+	switch(this.currentMode){
+	 	case this.modes.tech:
+	 		$("#panel-secondary").removeClass('panel-large');
+	 		$("#panel-secondary").removeClass('panel-elre');
+			break;
+		case this.modes.elre:
+			$("#panel-secondary").addClass('panel-large');
+			$("#panel-secondary").addClass('panel-elre');
+			break;
+		case this.modes.histo:
+			$("#panel-secondary").addClass('panel-large');
+			$("#panel-secondary").removeClass('panel-elre');
+			break;
+		case this.modes.info:
+			$("#panel-secondary").removeClass('panel-large');
+			$("#panel-secondary").removeClass('panel-elre');
+			break;
+		case this.modes.none:
+			$("#panel-secondary").removeClass('panel-large');
+			$("#panel-secondary").removeClass('panel-elre');
+			break;
+		default:
+			console.log("unkonwn mode");
+			break;
+		
+	}
+	
+	
+		
 	
 	$.get( url, data ).done(function( data ) {
 			$("#panel-secondary").html(data);
@@ -242,13 +275,11 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	});
 }
 
-GUI.prototype.loadTertiaryContent = function(url){
+GUI.prototype.loadTertiaryContent = function(url,data){
 	$("#panel-tertiary").hide();
 	var scope = this;
-	$("#panel-tertiary").load(url, function(){
-		// load complete
-		//$("#panel-tertiary").fadeIn(scope.EASING_TIME);
-
+	$.get( url, data ).done(function( data ) {
+			$("#panel-tertiary").html(data);
 	});
 }
 GUI.prototype.showPanelTertiary = function(){
@@ -284,6 +315,8 @@ GUI.prototype.resetDR = function(){
 	if (typeof $( "#panel-tertiary" ).resizable("instance") != 'undefined')
 		$( "#panel-tertiary" ).resizable("destroy")
 	
+	$("#panel-tertiary").hide();
+	
 	switch(this.currentMode){
 	 	case this.modes.tech:
 	 		$("#panel-secondary").draggable();
@@ -305,8 +338,8 @@ GUI.prototype.resetDR = function(){
 	
 	
 	// hack for touch resize
-	document.getElementById("panel-secondary" ).addEventListener( 'touchmove', touchmove, false );
-	var lastDistance = null ;
+	//document.getElementById("panel-secondary" ).addEventListener( 'touchmove', touchmove, false );
+/*	var lastDistance = null ;
 	function touchmove(event){
 		
 		//event.preventDefault();
@@ -320,7 +353,7 @@ GUI.prototype.resetDR = function(){
 				lastDistance = distance;
 			var diff = distance-lastDistance;
 			lastDistance = distance;
-			console.log(diff);
+			//console.log(diff);
 			if(diff>0 && $("#panel-secondary").width() < resizableOptions.maxWidth){
 				$("#panel-secondary").css("width","+=2");
 				//$("#panel-secondary").css("left","-=1.5");
@@ -332,8 +365,46 @@ GUI.prototype.resetDR = function(){
 			}
 		
 		}
-	}
+	}*/
 
 	
+}
+
+var lastDistance = null ;
+function touchmove(event){
+	
+	var resizableOptions = {
+		resize: function(event, ui) {
+        ui.size.height = ui.originalSize.height;
+        },
+        aspectRatio: false,
+        minWidth: 460,
+        maxWidth:1920,
+        handles:"e"
+    }
+	
+	//event.preventDefault();
+	//event.stopPropagation();
+	if(event.touches.length >=2 && typeof $( "#panel-secondary" ).resizable("instance") != 'undefined'){
+		var dx = event.touches[ 0 ].pageX - event.touches[ 1 ].pageX;
+		var dy = event.touches[ 0 ].pageY - event.touches[ 1 ].pageY;
+		var distance = Math.sqrt( dx * dx + dy * dy );
+		
+		if(lastDistance == null)
+			lastDistance = distance;
+		var diff = distance-lastDistance;
+		lastDistance = distance;
+		//console.log(diff);
+		if(diff>0 && $("#panel-secondary").width() < resizableOptions.maxWidth){
+			$("#panel-secondary").css("width","+=4");
+			//$("#panel-secondary").css("left","-=1.5");
+			//$("#panel-secondary").css("top","-=1.5");
+		}else if (diff<0 && $("#panel-secondary").width() > resizableOptions.minWidth){
+			$("#panel-secondary").css("width","-=4");
+			//$("#panel-secondary").css("left","+=1.5");
+			//$("#panel-secondary").css("top","+=1.5");
+		}
+	
+	}
 }
 

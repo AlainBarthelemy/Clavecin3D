@@ -119,12 +119,14 @@ body{
 }
 #panel-secondary{
 	position:fixed;
+	/*top:300px;
+	right:20px;*/
+	cursor: pointer;
+}
+
+.panel-secondary{
 	top:300px;
 	right:20px;
-	/*width:360px;
-	height:300px;*/
-	/*overflow:hidden;*/
-	cursor: pointer;
 }
 #panel-tertiary{
 	position:fixed;
@@ -144,6 +146,11 @@ body{
 .panel-large{
 	width:560px;
 }
+.panel-elre{
+	top:20px ;
+	right:100px;
+}
+
 .panel-custom .panel-heading {
 	background-color: white;
 	border-radius:0;
@@ -201,7 +208,7 @@ body{
 	border-color: #42ABED !important;
 }
 .panel-custom .panel-body {
-	font-family: 'DINMedium';;	
+	font-family: 'DINMedium';
 }
 
 .panel-custom .panel-body h1{
@@ -307,6 +314,16 @@ body{
 }
 
 .info-panel .title{
+	font-family: 'MinimumANoir';
+	text-decoration: underline;
+	color:	#42ABED;
+	font-size: 22px;
+}
+#intro-text{
+	height:260px;
+	overflow-y:scroll;	
+}
+#intro-text .title{
 	font-family: 'MinimumANoir';
 	text-decoration: underline;
 	color:	#42ABED;

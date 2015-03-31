@@ -9,4 +9,6 @@
   </div>
   <div class="panel-body secondary-full-img">
   	<img src='<?php echo $_GET["imgsrc"]; ?>'>
+  	
+  	<div style="text-align:left;margin-top:5px;font-style: italic;"><?php echo file_get_contents("texts/".$_GET["id"].".html"); ?></div>
   </div>
