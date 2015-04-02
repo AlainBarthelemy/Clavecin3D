@@ -139,7 +139,9 @@ GUI.prototype.addEventsListeners = function(){
 		if(!$(this).children().hasClass("link-selected")){
 			$(".link-selected").removeClass("link-selected");
 			$(this).addClass("link-selected");
-			scope.loadImageOverlay(event.target.id);
+			scope.showImageOverlay(event.target.id);
+			scope.closePanel($('#panel-primary'));
+			scope.changeMode(scope.modes.none);
 		}
 	});
 	
@@ -187,6 +189,11 @@ GUI.prototype.addEventsListeners = function(){
 };
 
 GUI.prototype.changeMode = function(newMode){
+	
+	// if we go from histo to anorther mode unless we just close the primary window
+	if(this.currentMode == this.modes.resto && newMode != this.modes.none){
+		this.hideImageOverlay();	
+	}
 	
 	switch(newMode){
 	 	case this.modes.tech:
@@ -345,9 +352,14 @@ GUI.prototype.showPanelSecondary = function(){
 }
 
 // for resto
-GUI.prototype.loadImageOverlay = function(id){
-	$(".resto-img").addClass("hidden");
-	$("#"+id+"-img").removeClass("hidden");
+GUI.prototype.showImageOverlay = function(id){
+	/*$(".resto-img").addClass("hidden");
+	$("#"+id+"-img").removeClass("hidden");*/
+	$(".resto-img").fadeOut();
+	$("#"+id+"-img").fadeIn();
+}
+GUI.prototype.hideImageOverlay = function(){
+	//$(".resto-img").addClass("hidden");
 }
 
 
