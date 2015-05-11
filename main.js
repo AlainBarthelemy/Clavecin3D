@@ -60,7 +60,6 @@ loadTechElements();
 
 init();
 animate();
-
 //haveaNapIfnoSnap();
 
 
@@ -141,19 +140,19 @@ function init() {
 
 		//textured / main model
 		object.position.set(0,5,0);
-		scene.add( object );
+		//scene.add( object );
 		
 		//volumetric model
 		//var volMaterial = new THREE.MeshPhongMaterial( { ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0x333333, shininess: 0});
 		var volObject = new THREE.Object3D();
 		volObject.position.set(0,5,0);
-		scene.add(volObject);
+		//scene.add(volObject);
 		
 		//wireframe model
 		var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x42ABED,wireframe:true } );
 		var wfObject = new THREE.Object3D();
 		wfObject.position.set(0,5,0);
-		scene.add(wfObject);
+		//scene.add(wfObject);
 		
 
 		

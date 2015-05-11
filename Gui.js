@@ -53,7 +53,10 @@ GUI.prototype.addEventsListeners = function(){
 		scope.closePanel($('#panel-primary'));
 		scope.closePanel($('#panel-secondary'));
 		scope.closePanel($('#panel-tertiary'));
-		scope.changeMode(scope.modes.none);
+		
+		// resto mode is the only case when closing the primary panel won't make it switch to mode none
+		if(scope.currentMode != scope.modes.resto)
+			scope.changeMode(scope.modes.none);
 	});
 	$(document).on('click touchstart','#panel-secondary #close-btn', function(event){
 		scope.closePanel($('#panel-secondary'));
@@ -84,8 +87,11 @@ GUI.prototype.addEventsListeners = function(){
 			}
 	});
 	$('#resto-dd-btn').click(function(){
+			// if we are in another mode
 			if(! $('#resto-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.resto);
+			}else{// if we are in resto mode already
+				$("#panel-primary").fadeIn(scope.EASING_TIME);
 			}
 	});
 	$('#ipad-dd-btn').click(function(){
@@ -141,7 +147,16 @@ GUI.prototype.addEventsListeners = function(){
 			$(this).addClass("link-selected");
 			scope.showImageOverlay(event.target.id);
 			scope.closePanel($('#panel-primary'));
-			scope.changeMode(scope.modes.none);
+			//scope.changeMode(scope.modes.none);
+		}
+	});
+
+	// ipad
+	$(document).on('click','.ipadItem',function(event){
+		if(!$(this).children().hasClass("link-selected")){
+			$(".link-selected").removeClass("link-selected");
+			$(this).addClass("link-selected");
+			scope.loadSecondaryContent("contents/ipad/panel-secondary.php",{id:event.target.id});
 		}
 	});
 	
@@ -295,30 +310,37 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	 	case this.modes.tech:
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
+	 		$("#panel-secondary").removeClass('panel-ipad');
 			break;
 		case this.modes.elre:
+			$("#panel-secondary").removeClass('panel-ipad');
 			$("#panel-secondary").addClass('panel-large');
 			$("#panel-secondary").addClass('panel-elre');
 			break;
 		case this.modes.histo:
 			$("#panel-secondary").addClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
+			$("#panel-secondary").removeClass('panel-ipad');
 			break;
 		case this.modes.resto:
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
+	 		$("#panel-secondary").removeClass('panel-ipad');
 			break;
 		case this.modes.ipad:
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
+	 		$("#panel-secondary").addClass('panel-ipad');
 	 		break;
 		case this.modes.info:
 			$("#panel-secondary").removeClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
+			$("#panel-secondary").removeClass('panel-ipad');
 			break;
 		case this.modes.none:
 			$("#panel-secondary").removeClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
+			$("#panel-secondary").removeClass('panel-ipad');
 			break;
 		default:
 			console.log("unkonwn mode");
@@ -331,6 +353,11 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	
 	$.get( url, data ).done(function( data ) {
 			$("#panel-secondary").html(data);
+			
+			// in the other modes we wait for a 3D anim to complete before showing the secondary p
+			if(scope.currentMode == scope.modes.ipad){
+				scope.showPanelSecondary();
+			}
 			//scope.showPanelSecondary();	
 	});
 }
@@ -360,6 +387,7 @@ GUI.prototype.showImageOverlay = function(id){
 }
 GUI.prototype.hideImageOverlay = function(){
 	//$(".resto-img").addClass("hidden");
+	$(".resto-img").fadeOut();
 }
 
 

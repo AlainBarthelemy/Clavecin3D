@@ -144,8 +144,12 @@ body{
 	border-radius: 0;
 }
 .panel-resto{
-	width:550px;	
+	width:500px;	
 }
+.panel-resto p{
+	margin: 0 0 20px;	
+}
+
 .panel-large{
 	width:560px;
 }
@@ -153,7 +157,11 @@ body{
 	top:20px ;
 	right:100px;
 }
-
+.panel-ipad{
+	top:100px ;
+	right:800px;
+	width:1048px;
+}
 .panel-custom .panel-heading {
 	background-color: white;
 	border-radius:0;
