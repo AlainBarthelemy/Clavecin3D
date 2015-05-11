@@ -22,9 +22,14 @@ function GUI(){
 	};
 	this.currentMode = this.modes.none;
 	this.EASING_TIME = 300;
+	
+	
+	
 	var scope = this;	
 	$(window).load(function() {
 		scope.addEventsListeners();
+		
+		scope.miniDiapo = new MiniDiapo();
 		
 		// hack for touch resize
 		document.getElementById("panel-secondary" ).addEventListener( 'touchmove', touchmove, false );
@@ -90,8 +95,8 @@ GUI.prototype.addEventsListeners = function(){
 			// if we are in another mode
 			if(! $('#resto-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.resto);
-			}else{// if we are in resto mode already
-				$("#panel-primary").fadeIn(scope.EASING_TIME);
+			//}else{// if we are in resto mode already
+				//$("#panel-primary").fadeIn(scope.EASING_TIME);
 			}
 	});
 	$('#ipad-dd-btn').click(function(){
@@ -146,7 +151,7 @@ GUI.prototype.addEventsListeners = function(){
 			$(".link-selected").removeClass("link-selected");
 			$(this).addClass("link-selected");
 			scope.showImageOverlay(event.target.id);
-			scope.closePanel($('#panel-primary'));
+			//scope.closePanel($('#panel-primary'));
 			//scope.changeMode(scope.modes.none);
 		}
 	});
@@ -232,6 +237,10 @@ GUI.prototype.changeMode = function(newMode){
 		case this.modes.resto:
 				this.currentMode = this.modes.resto;
 				this.changeActiveDDBtn($('#resto-dd-btn'));
+				
+				this.miniDiapo.show();
+				this.miniDiapo.start();
+				
 				this.loadPrimaryContent("contents/resto/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.resto});
 			break;
