@@ -60,7 +60,7 @@ GUI.prototype.addEventsListeners = function(){
 		scope.closePanel($('#panel-tertiary'));
 		
 		// resto mode is the only case when closing the primary panel won't make it switch to mode none
-		if(scope.currentMode != scope.modes.resto)
+		//if(scope.currentMode != scope.modes.resto)
 			scope.changeMode(scope.modes.none);
 	});
 	$(document).on('click touchstart','#panel-secondary #close-btn', function(event){
@@ -211,8 +211,10 @@ GUI.prototype.addEventsListeners = function(){
 GUI.prototype.changeMode = function(newMode){
 	
 	// if we go from histo to anorther mode unless we just close the primary window
-	if(this.currentMode == this.modes.resto && newMode != this.modes.none){
+	if(this.currentMode == this.modes.resto){
 		this.hideImageOverlay();	
+		this.miniDiapo.hide();
+		this.miniDiapo.stop();
 	}
 	
 	switch(newMode){

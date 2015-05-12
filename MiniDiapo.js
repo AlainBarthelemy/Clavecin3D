@@ -1,5 +1,5 @@
 function MiniDiapo(){
-	this.diapoPeriod = 1000;
+	this.diapoPeriod = 5000;
 	this.currentIndex = 0;
 	this.diapos = [
 		"contents/resto/diapo/fondpanneaux0.jpg",
@@ -11,13 +11,14 @@ function MiniDiapo(){
 		"contents/resto/diapo/fondpanneaux6.jpg",
 		"contents/resto/diapo/fondpanneaux7.jpg",
 	];
+	//$("#miniDiapo").hide();
 	this.populate();
 }
 
 MiniDiapo.prototype.populate = function(){
 	$("#miniDiapo").empty();
 	for(var k=0;k<this.diapos.length;k++)
-		$("#miniDiapo").append('<img src="'+this.diapos[k]+'">');	
+		$("#miniDiapo").append('<img class="diap-hidden" src="'+this.diapos[k]+'">');	
 }
 
 MiniDiapo.prototype.start = function(){
@@ -32,16 +33,19 @@ MiniDiapo.prototype.stop = function(){
 }
 
 MiniDiapo.prototype.show = function(){
-	$("#miniDiapo img").fadeOut();
-	var check = $("#miniDiapo img");
-	$($("#miniDiapo img")[this.currentIndex]).fadeIn();
+	$("#miniDiapo").fadeIn();
+	$($("#miniDiapo img")[this.currentIndex]).removeClass("diap-hidden");
 }
 
 MiniDiapo.prototype.hide = function(){
-	$("#miniDiapo img").fadeOut();
+	$("#miniDiapo").fadeOut();
 }
 MiniDiapo.prototype.nextDiapo = function(){
-	$("#miniDiapo img").fadeOut();
-	$($("#miniDiapo img")[this.currentIndex]).fadeIn();
+	//$("#miniDiapo img").fadeOut();
+	//$($("#miniDiapo img")[this.currentIndex]).fadeIn();
+	$($("#miniDiapo img")[this.currentIndex+1 > this.diapos.length - 1 ? 0 : this.currentIndex+1]).removeClass("diap-hidden");
+	$($("#miniDiapo img")[this.currentIndex]).addClass("diap-hidden");
 	this.currentIndex++;
+	if(this.currentIndex > this.diapos.length - 1)
+		this.currentIndex = 0;
 }
