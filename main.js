@@ -59,18 +59,20 @@ loadTechElements();
 
 
 init();
-animate();
+//animate();
 //haveaNapIfnoSnap();
 
 
 function init() {
 
 	container = document.createElement( 'div' );
+	container.setAttribute("id", "canvas-container");
 	document.body.appendChild( container );
 	
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( WIDTH, HEIGHT );
 	container.appendChild( renderer.domElement );
+	
 	
 	/*stats = new Stats();
 	stats.domElement.style.position = 'absolute';
@@ -140,19 +142,19 @@ function init() {
 
 		//textured / main model
 		object.position.set(0,5,0);
-		//scene.add( object );
+		scene.add( object );
 		
 		//volumetric model
 		//var volMaterial = new THREE.MeshPhongMaterial( { ambient: 0x444444, color: 0xcccccc, specular: 0x000000,emissive:0x333333, shininess: 0});
 		var volObject = new THREE.Object3D();
 		volObject.position.set(0,5,0);
-		//scene.add(volObject);
+		scene.add(volObject);
 		
 		//wireframe model
 		var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x42ABED,wireframe:true } );
 		var wfObject = new THREE.Object3D();
 		wfObject.position.set(0,5,0);
-		//scene.add(wfObject);
+		scene.add(wfObject);
 		
 
 		
@@ -669,8 +671,9 @@ function haveaNapIfnoSnap(){
 		dosing = true;
 		console.log("nap");	
 		
-		$('#main-nav').addClass('mini-navbar');
-		$('.navbar-brand').addClass('mini-brand');
+		//$('#main-nav').addClass('mini-navbar');
+		//$('.navbar-brand').addClass('mini-brand');
+		gui.closeMenu();
 		cameraControls.autoRotate = true;
 		
 		
@@ -686,8 +689,9 @@ function haveaNapIfnoSnap(){
 		dosing = false;
 		console.log("wake");
 		
-		$('#main-nav').removeClass('mini-navbar');
-		$('.navbar-brand').removeClass('mini-brand');
+		//$('#main-nav').removeClass('mini-navbar');
+		//$('.navbar-brand').removeClass('mini-brand');
+		gui.openMenu();
 		cameraControls.autoRotate = false;
 	}
 	

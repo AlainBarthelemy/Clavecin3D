@@ -15,11 +15,31 @@ function GUI(){
 		tech:"tech-mode",
 		elre:"elre-mode",
 		histo:"histo-mode",
+		qqc:"qqc-mode",
 		resto:"resto-mode",
 		ipad:"ipad-mode",
 		info:"info",
 		none:"none"
 	};
+	
+	this.diapos = {
+		qqc:[
+			"contents/qqc/diapo/fondpanneaux1.jpg",
+			"contents/qqc/diapo/fondpanneaux2.jpg",
+			"contents/qqc/diapo/fondpanneaux3.jpg",
+			"contents/qqc/diapo/fondpanneaux4.jpg",
+			"contents/qqc/diapo/fondpanneaux5.jpg",
+			"contents/qqc/diapo/fondpanneaux6.jpg",
+		],
+		resto:[
+			"contents/resto/diapo/fondpanneaux1.jpg",
+			"contents/resto/diapo/fondpanneaux2.jpg",
+			"contents/resto/diapo/fondpanneaux3.jpg",
+			"contents/resto/diapo/fondpanneaux4.jpg",
+			"contents/resto/diapo/fondpanneaux5.jpg",
+			"contents/resto/diapo/fondpanneaux6.jpg",
+		]
+	}
 	this.currentMode = this.modes.none;
 	this.EASING_TIME = 300;
 	
@@ -29,7 +49,11 @@ function GUI(){
 	$(window).load(function() {
 		scope.addEventsListeners();
 		
-		scope.miniDiapo = new MiniDiapo();
+		scope.miniDiapoResto = new MiniDiapo("#miniDiapo-resto");
+		scope.miniDiapoQqc = new MiniDiapo("#miniDiapo-qqc");
+		
+		scope.miniDiapoResto.populate(scope.diapos.resto);
+		scope.miniDiapoQqc.populate(scope.diapos.qqc);
 		
 		// hack for touch resize
 		document.getElementById("panel-secondary" ).addEventListener( 'touchmove', touchmove, false );
@@ -46,13 +70,11 @@ function GUI(){
 
 GUI.prototype.addEventsListeners = function(){
 	var scope = this;
-/*	$('#folder-toggle-btn').click(function(){
-		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-up");
-		$("#folder-toggle-btn > .glyphicon").toggleClass("glyphicon-chevron-down");
-	});*/
+	
 	$('.navbar-brand').click(function(){
-		$('#main-nav').toggleClass('mini-navbar');
-		$('.navbar-brand').toggleClass('mini-brand');		
+		//$('#main-nav').toggleClass('mini-navbar');
+		//$('.navbar-brand').toggleClass('mini-brand');		
+		scope.toggleMenu();
 	});
 	$(document).on('click','#panel-primary #close-btn', function(event){
 		scope.closePanel($('#panel-primary'));
@@ -61,12 +83,14 @@ GUI.prototype.addEventsListeners = function(){
 		
 		// resto mode is the only case when closing the primary panel won't make it switch to mode none
 		//if(scope.currentMode != scope.modes.resto)
-			scope.changeMode(scope.modes.none);
+		scope.changeMode(scope.modes.none);
+		
+		scope.openMenu();
 	});
 	$(document).on('click touchstart','#panel-secondary #close-btn', function(event){
 		scope.closePanel($('#panel-secondary'));
 		scope.closePanel($('#panel-tertiary'));
-		if(scope.currentMode == scope.modes.elre)
+		if(scope.currentMode == scope.modes.elre || scope.currentMode == scope.modes.ipad)
 			$(".img-selected").removeClass("img-selected");
 		else
 			$(".link-selected").removeClass("link-selected");
@@ -79,17 +103,23 @@ GUI.prototype.addEventsListeners = function(){
 	$('#technique-dd-btn').click(function(){
 			if(! $('#technique-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.tech);
+				scope.closeMenu();
 			}
+			
 	});
 	$('#elre-dd-btn').click(function(){
 			if(! $('#elre-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.elre);
+				scope.closeMenu();
 			}
+			
 	});
 	$('#histo-dd-btn').click(function(){
 			if(! $('#histo-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.histo);
+				scope.closeMenu();
 			}
+			
 	});
 	$('#resto-dd-btn').click(function(){
 			// if we are in another mode
@@ -97,17 +127,30 @@ GUI.prototype.addEventsListeners = function(){
 				scope.changeMode(scope.modes.resto);
 			//}else{// if we are in resto mode already
 				//$("#panel-primary").fadeIn(scope.EASING_TIME);
+				scope.closeMenu();
 			}
+			
+	});
+	$('#qqc-dd-btn').click(function(){
+			if(! $('#qqc-dd-btn').hasClass("active")){
+				scope.changeMode(scope.modes.qqc);
+				scope.closeMenu();
+			}
+			
 	});
 	$('#ipad-dd-btn').click(function(){
 			if(! $('#ipad-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.ipad);
+				scope.closeMenu();
 			}
+			
 	});
 	$('#info-dd-btn').click(function(){
 			if(! $('#info-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.info);
+				scope.closeMenu();
 			}
+			
 	});
 
 	// pop up items
@@ -148,20 +191,39 @@ GUI.prototype.addEventsListeners = function(){
 	// resto
 	$(document).on('click','.restoItem',function(event){
 		if(!$(this).children().hasClass("link-selected")){
+			
 			$(".link-selected").removeClass("link-selected");
 			$(this).addClass("link-selected");
-			scope.showImageOverlay(event.target.id);
+			scope.miniDiapoResto.stop();
+			
+			if(event.target.id == "film"){
+				scope.loadSecondaryContent("contents/resto/panel-secondary.php",{id:event.target.id});	
+			}else{
+				scope.miniDiapoResto.hide();
+				scope.showBackgroundImage(event.target.id);
+			}
 			//scope.closePanel($('#panel-primary'));
 			//scope.changeMode(scope.modes.none);
 		}
 	});
 
-	// ipad
-	$(document).on('click','.ipadItem',function(event){
+	// qqc
+	$(document).on('click','.qqcItem',function(event){
 		if(!$(this).children().hasClass("link-selected")){
 			$(".link-selected").removeClass("link-selected");
 			$(this).addClass("link-selected");
-			scope.loadSecondaryContent("contents/ipad/panel-secondary.php",{id:event.target.id});
+			scope.miniDiapoQqc.stop();
+			scope.miniDiapoQqc.hide();
+			scope.showBackgroundImage(event.target.id);
+		}
+	});
+
+	// ipad
+	$(document).on('click','.ipadItem',function(event){
+		if(!$(this).hasClass("img-selected")){
+			$(".img-selected").removeClass("img-selected");
+			$(this).addClass("img-selected");
+			scope.loadSecondaryContent("contents/ipad/panel-secondary.php",{id:event.currentTarget.id});
 		}
 	});
 	
@@ -212,9 +274,15 @@ GUI.prototype.changeMode = function(newMode){
 	
 	// if we go from histo to anorther mode unless we just close the primary window
 	if(this.currentMode == this.modes.resto){
-		this.hideImageOverlay();	
-		this.miniDiapo.hide();
-		this.miniDiapo.stop();
+		this.miniDiapoResto.hide();
+		this.miniDiapoResto.stop();
+		this.hideBackgroundImage();	
+	}else if(this.currentMode == this.modes.qqc){
+		this.miniDiapoQqc.hide();
+		this.miniDiapoQqc.stop();
+		this.hideBackgroundImage();	
+	}else if(this.currentMode == this.modes.ipad){
+		this.hideBackgroundImage();	
 	}
 	
 	switch(newMode){
@@ -223,45 +291,69 @@ GUI.prototype.changeMode = function(newMode){
 	 			this.changeActiveDDBtn($('#technique-dd-btn'));
 				this.loadPrimaryContent("contents/technique/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.tech});
+				
+				$("#canvas-container").show();
 			break;
 		case this.modes.elre:
 				this.currentMode = this.modes.elre;
 				this.changeActiveDDBtn($('#elre-dd-btn'));
 				this.loadPrimaryContent("contents/elre/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.elre});
+			
+				$("#canvas-container").show();
 			break;
 		case this.modes.histo:
 				this.currentMode = this.modes.histo;
 				this.changeActiveDDBtn($('#histo-dd-btn'));
 				this.loadPrimaryContent("contents/histo/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.histo});
+				
+				$("#canvas-container").show();
 			break;
 		case this.modes.resto:
 				this.currentMode = this.modes.resto;
 				this.changeActiveDDBtn($('#resto-dd-btn'));
-				
-				this.miniDiapo.show();
-				this.miniDiapo.start();
-				
 				this.loadPrimaryContent("contents/resto/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.resto});
+				
+				this.miniDiapoResto.show();
+				this.miniDiapoResto.start();
+				$("#canvas-container").hide();
+			break;
+		case this.modes.qqc:
+				this.currentMode = this.modes.qqc;
+				this.changeActiveDDBtn($('#qqc-dd-btn'));
+				this.loadPrimaryContent("contents/qqc/content.html");
+				this.emitEvent(this.events.changeMode,{newMode:this.modes.qqc});
+				
+				this.miniDiapoQqc.show();
+				this.miniDiapoQqc.start();
+				$("#canvas-container").hide();
 			break;
 		case this.modes.ipad:
 				this.currentMode = this.modes.ipad;
 				this.changeActiveDDBtn($('#ipad-dd-btn'));
 				this.loadPrimaryContent("contents/ipad/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.ipad});
+				
+				this.showBackgroundImage("ipad");
+				
+				$("#canvas-container").hide();
 			break;
 		case this.modes.info:
 				this.currentMode = this.modes.histo;
 				this.changeActiveDDBtn($('#info-dd-btn'));
 				this.loadPrimaryContent("contents/info/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.info});
+				
+				$("#canvas-container").show();
 			break;
 		case this.modes.none:
 				this.currentMode = this.modes.none;
 				this.deactivateAllDDBtn();
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.none});
+				
+				$("#canvas-container").show();
 			break;
 		default:
 			console.log("unknown mode");
@@ -322,36 +414,49 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
 	 		$("#panel-secondary").removeClass('panel-ipad');
+	 		$("#panel-secondary").removeClass('panel-film');
 			break;
 		case this.modes.elre:
-			$("#panel-secondary").removeClass('panel-ipad');
 			$("#panel-secondary").addClass('panel-large');
 			$("#panel-secondary").addClass('panel-elre');
+			$("#panel-secondary").removeClass('panel-ipad');
+			$("#panel-secondary").removeClass('panel-film');
 			break;
 		case this.modes.histo:
 			$("#panel-secondary").addClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
 			$("#panel-secondary").removeClass('panel-ipad');
+			$("#panel-secondary").removeClass('panel-film');
 			break;
 		case this.modes.resto:
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
 	 		$("#panel-secondary").removeClass('panel-ipad');
+	 		$("#panel-secondary").addClass('panel-film');
+			break;
+		case this.modes.qqc:
+	 		$("#panel-secondary").removeClass('panel-large');
+	 		$("#panel-secondary").removeClass('panel-elre');
+	 		$("#panel-secondary").removeClass('panel-ipad');
+	 		$("#panel-secondary").removeClass('panel-film');
 			break;
 		case this.modes.ipad:
 	 		$("#panel-secondary").removeClass('panel-large');
 	 		$("#panel-secondary").removeClass('panel-elre');
 	 		$("#panel-secondary").addClass('panel-ipad');
+	 		$("#panel-secondary").removeClass('panel-film');
 	 		break;
 		case this.modes.info:
 			$("#panel-secondary").removeClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
 			$("#panel-secondary").removeClass('panel-ipad');
+			$("#panel-secondary").removeClass('panel-film');
 			break;
 		case this.modes.none:
 			$("#panel-secondary").removeClass('panel-large');
 			$("#panel-secondary").removeClass('panel-elre');
 			$("#panel-secondary").removeClass('panel-ipad');
+			$("#panel-secondary").removeClass('panel-film');
 			break;
 		default:
 			console.log("unkonwn mode");
@@ -366,7 +471,7 @@ GUI.prototype.loadSecondaryContent = function(url,data){
 			$("#panel-secondary").html(data);
 			
 			// in the other modes we wait for a 3D anim to complete before showing the secondary p
-			if(scope.currentMode == scope.modes.ipad){
+			if(scope.currentMode == scope.modes.ipad || scope.currentMode == scope.modes.resto){
 				scope.showPanelSecondary();
 			}
 			//scope.showPanelSecondary();	
@@ -390,15 +495,20 @@ GUI.prototype.showPanelSecondary = function(){
 }
 
 // for resto
-GUI.prototype.showImageOverlay = function(id){
+GUI.prototype.showBackgroundImage = function(id){
 	/*$(".resto-img").addClass("hidden");
 	$("#"+id+"-img").removeClass("hidden");*/
-	$(".resto-img").fadeOut();
-	$("#"+id+"-img").fadeIn();
+	
+	
+	$(".bck-img").removeClass("bck-shown");
+	$("#"+id+"-img").addClass("bck-shown");
+	
+	$("#bck-img-container").fadeIn();
 }
-GUI.prototype.hideImageOverlay = function(){
+GUI.prototype.hideBackgroundImage = function(){
 	//$(".resto-img").addClass("hidden");
-	$(".resto-img").fadeOut();
+	$(".bck-img").removeClass("bck-shown");
+	$("#bck-img-container").hide();
 }
 
 
@@ -480,6 +590,21 @@ GUI.prototype.resetDR = function(){
 	}*/
 
 	
+}
+
+GUI.prototype.toggleMenu = function(){
+	$('#main-nav').toggleClass('mini-navbar');
+	$('.navbar-brand').toggleClass('mini-brand');
+}
+
+GUI.prototype.openMenu = function(){
+	$('#main-nav').removeClass('mini-navbar');
+	$('.navbar-brand').removeClass('mini-brand');
+}
+
+GUI.prototype.closeMenu = function(){
+	$('#main-nav').addClass('mini-navbar');
+	$('.navbar-brand').addClass('mini-brand');
 }
 
 var lastDistance = null ;

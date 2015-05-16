@@ -50,10 +50,14 @@
 		<script src="Gui.js"></script>
 		<script src="main.js"></script>
 		<!--<script src="facesEditor.js"></script>-->
-		<div id="miniDiapo"></div>
-		<div id="resto-img-container">
-			<img id="resto-1-img" class="resto-img" src="contents/resto/resto-1.jpg">
-			<img id="resto-2-img" class="resto-img" src="contents/resto/resto-2.jpg">
+		<div id="miniDiapo-qqc" class="miniDiapo" style="display:none" ></div>
+		<div id="miniDiapo-resto" class="miniDiapo" style="display:none"></div>
+		<div id="bck-img-container" style="display:none">
+			<img id="resto-1-img" class="bck-img" src="contents/resto/resto-1.jpg">
+			<img id="resto-2-img" class="bck-img" src="contents/resto/resto-2.jpg">
+			<img id="qqc-1-img" class="bck-img" src="contents/qqc/qqc-1.jpg">
+			<img id="qqc-2-img" class="bck-img" src="contents/qqc/qqc-2.jpg">
+			<img id="ipad-img" class="bck-img" src="contents/ipad/bck.jpg">
 		</div>
 		<div id="ui">
 			<nav id="main-nav" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
@@ -73,7 +77,7 @@
                       <ul class="nav navbar-nav">
                         <!-- <li class="disabled"><a href="#">Link</a></li> -->
                         <li class="dropdown">
-                          <a id="resto-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture menu-icon"></span><span class="menu-title">Qu'est-ce qu'un clavecin ?</span></a>
+                          <a id="qqc-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture menu-icon"></span><span class="menu-title">Qu'est-ce qu'un clavecin ?</span></a>
                         </li>
                         <li class="dropdown">
                           <a id="technique-dd-btn" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicons settings menu-icon"></span><span class="menu-title">Lexique</span></a>
@@ -82,7 +86,10 @@
                           <a id="ipad-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture menu-icon"></span><span class="menu-title">Le clavecin sous imagerie scientifique</span></a>
                         </li>
                         <li class="dropdown">
-                          <a id="histo-dd-btn" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicons history menu-icon"></span><span class="menu-title">Avant / Après restauration</span></a>
+                          <a id="resto-dd-btn"  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-picture menu-icon"></span><span class="menu-title">La restauration du clavecin</span></a>
+                        </li>
+                        <li class="dropdown">
+                          <a id="histo-dd-btn" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicons history menu-icon"></span><span class="menu-title">Avant/après restauration</span></a>
                         </li>
 
                         <!--<li class="dropdown">

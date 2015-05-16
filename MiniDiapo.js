@@ -1,24 +1,18 @@
-function MiniDiapo(){
-	this.diapoPeriod = 5000;
+function MiniDiapo(id){
+	this.diapoPeriod = 10000;
 	this.currentIndex = 0;
-	this.diapos = [
-		"contents/resto/diapo/fondpanneaux0.jpg",
-		"contents/resto/diapo/fondpanneaux1.jpg",
-		"contents/resto/diapo/fondpanneaux2.jpg",
-		"contents/resto/diapo/fondpanneaux3.jpg",
-		"contents/resto/diapo/fondpanneaux4.jpg",
-		"contents/resto/diapo/fondpanneaux5.jpg",
-		"contents/resto/diapo/fondpanneaux6.jpg",
-		"contents/resto/diapo/fondpanneaux7.jpg",
-	];
+	this.id = id;
 	//$("#miniDiapo").hide();
-	this.populate();
 }
 
-MiniDiapo.prototype.populate = function(){
-	$("#miniDiapo").empty();
+MiniDiapo.prototype.populate = function(diapos){
+	this.diapos = diapos;
+	$(this.id).empty();
 	for(var k=0;k<this.diapos.length;k++)
-		$("#miniDiapo").append('<img class="diap-hidden" src="'+this.diapos[k]+'">');	
+		$(this.id).append('<img class="diap-hidden" src="'+this.diapos[k]+'">');
+
+	// we let be visible the first diap
+	$($(this.id+" img")[this.currentIndex]).removeClass("diap-hidden");	
 }
 
 MiniDiapo.prototype.start = function(){
@@ -33,18 +27,19 @@ MiniDiapo.prototype.stop = function(){
 }
 
 MiniDiapo.prototype.show = function(){
-	$("#miniDiapo").fadeIn();
-	$($("#miniDiapo img")[this.currentIndex]).removeClass("diap-hidden");
+	$(this.id).fadeIn();
+	//$($(this.id+" img")[this.currentIndex]).removeClass("diap-hidden");
 }
 
 MiniDiapo.prototype.hide = function(){
-	$("#miniDiapo").fadeOut();
+	//$(this.id).fadeOut();
+	$(this.id).hide();
 }
 MiniDiapo.prototype.nextDiapo = function(){
 	//$("#miniDiapo img").fadeOut();
 	//$($("#miniDiapo img")[this.currentIndex]).fadeIn();
-	$($("#miniDiapo img")[this.currentIndex+1 > this.diapos.length - 1 ? 0 : this.currentIndex+1]).removeClass("diap-hidden");
-	$($("#miniDiapo img")[this.currentIndex]).addClass("diap-hidden");
+	$($(this.id+" img")[this.currentIndex+1 > this.diapos.length - 1 ? 0 : this.currentIndex+1]).removeClass("diap-hidden");
+	$($(this.id+" img")[this.currentIndex]).addClass("diap-hidden");
 	this.currentIndex++;
 	if(this.currentIndex > this.diapos.length - 1)
 		this.currentIndex = 0;
