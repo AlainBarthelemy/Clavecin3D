@@ -59,8 +59,8 @@ loadTechElements();
 
 
 init();
-//animate();
-//haveaNapIfnoSnap();
+animate();
+haveaNapIfnoSnap();
 
 
 function init() {

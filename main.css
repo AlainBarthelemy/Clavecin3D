@@ -8,7 +8,8 @@ body{
 	margin: 0px;
 	padding:0px;
 	overflow: hidden;
-	background-color: #9C9C9C;
+	/*background-color: #9C9C9C;*/
+	background-color: #000000;
 	font-family: 'MinimumANoir';
 	font-size:18px;
 	-webkit-touch-callout: none;
