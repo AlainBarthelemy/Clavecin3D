@@ -1,5 +1,6 @@
 function MiniDiapo(id){
-	this.diapoPeriod = 10000;
+	this.diapoDelay = 1000;
+	this.diapoPeriod = 5000;
 	this.currentIndex = 0;
 	this.id = id;
 	//$("#miniDiapo").hide();
@@ -17,12 +18,14 @@ MiniDiapo.prototype.populate = function(diapos){
 
 MiniDiapo.prototype.start = function(){
 	var self = this;
+	this.delayHandler = setTimeout(function(){self.nextDiapo();},this.diapoDelay);
 	this.intervalHandler = setInterval(function(){
 			self.nextDiapo();
 	},this.diapoPeriod);
 }
 
 MiniDiapo.prototype.stop = function(){
+	clearTimeout(this.delayHandler);
 	clearInterval(this.intervalHandler);	
 }
 

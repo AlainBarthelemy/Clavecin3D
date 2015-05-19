@@ -85,7 +85,7 @@ GUI.prototype.addEventsListeners = function(){
 		//if(scope.currentMode != scope.modes.resto)
 		scope.changeMode(scope.modes.none);
 		
-		scope.openMenu();
+		//scope.openMenu();
 	});
 	$(document).on('click touchstart','#panel-secondary #close-btn', function(event){
 		scope.closePanel($('#panel-secondary'));
@@ -103,21 +103,21 @@ GUI.prototype.addEventsListeners = function(){
 	$('#technique-dd-btn').click(function(){
 			if(! $('#technique-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.tech);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
 	$('#elre-dd-btn').click(function(){
 			if(! $('#elre-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.elre);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
 	$('#histo-dd-btn').click(function(){
 			if(! $('#histo-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.histo);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
@@ -127,28 +127,28 @@ GUI.prototype.addEventsListeners = function(){
 				scope.changeMode(scope.modes.resto);
 			//}else{// if we are in resto mode already
 				//$("#panel-primary").fadeIn(scope.EASING_TIME);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
 	$('#qqc-dd-btn').click(function(){
 			if(! $('#qqc-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.qqc);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
 	$('#ipad-dd-btn').click(function(){
 			if(! $('#ipad-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.ipad);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
 	$('#info-dd-btn').click(function(){
 			if(! $('#info-dd-btn').hasClass("active")){
 				scope.changeMode(scope.modes.info);
-				scope.closeMenu();
+				//scope.closeMenu();
 			}
 			
 	});
