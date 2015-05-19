@@ -59,7 +59,7 @@ loadTechElements();
 
 
 init();
-animate();
+//animate();
 haveaNapIfnoSnap();
 
 

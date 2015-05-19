@@ -97,6 +97,7 @@ GUI.prototype.addEventsListeners = function(){
 	});
 	$(document).on('click','#panel-tertiary #close-btn', function(event){
 		scope.closePanel($('#panel-tertiary'));
+		
 	});
 	
 	// menu buttons
@@ -272,6 +273,10 @@ GUI.prototype.addEventsListeners = function(){
 
 GUI.prototype.changeMode = function(newMode){
 	
+	// if we are in resto mode and a video is loaded
+	if(this.currentMode == this.modes.resto && $( "#video-player" ).length)
+		this.stopVideo();
+	
 	// if we go from histo to anorther mode unless we just close the primary window
 	if(this.currentMode == this.modes.resto){
 		this.miniDiapoResto.hide();
@@ -364,7 +369,11 @@ GUI.prototype.changeMode = function(newMode){
 }
 
 GUI.prototype.closePanel = function(element){
+	
 	element.fadeOut(this.EASING_TIME);	
+	
+	if(element.selector == "#panel-secondary" && this.currentMode == this.modes.resto)
+		this.stopVideo();
 }
 
 GUI.prototype.emitEvent = function(eventType,eventData){
@@ -605,6 +614,11 @@ GUI.prototype.openMenu = function(){
 GUI.prototype.closeMenu = function(){
 	$('#main-nav').addClass('mini-navbar');
 	$('.navbar-brand').addClass('mini-brand');
+}
+
+GUI.prototype.stopVideo = function(){
+	$("#video-player")[0].pause();
+	$("#video-player")[0].seekable.start(0);
 }
 
 var lastDistance = null ;
