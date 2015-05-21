@@ -150,6 +150,9 @@ body{
 .panel-resto p{
 	margin: 0 0 20px;	
 }
+.panel-600{
+	width:600px;	
+}
 
 .panel-large{
 	width:560px;
@@ -160,7 +163,7 @@ body{
 }
 .panel-ipad{
 	top:100px ;
-	right:800px;
+	right:780px;
 	width:1048px;
 }
 .panel-film{
@@ -325,7 +328,7 @@ body{
   text-align:center;
   overflow:hidden;
   width:33%;
-  height:120px;
+  height:140px;
   	border-style: solid;
 	border-width: 2px;
 	border-color: white;
@@ -333,12 +336,26 @@ body{
 .thumb-grid .ipadItem img {
  /* max-height: 100%;
   max-width:100%;*/
-  
+  vertical-align:middle;
   position: relative; 
     left: 100%; 
     margin-left: -200%; 
     /*top:100%;
     margin-top:-200%;*/
+}
+
+.thumb-grid .ipadItem .vertical-center-helper{
+  display: inline-block;
+    height: 100%;
+    vertical-align: middle;	
+}
+
+.thumb-grid .ipadItem .ipadLegend{
+	position:fixed;
+	z-index: 100;
+	color: white;
+	background-color: black;
+	padding: 4px;
 }
 
 /* model controls */

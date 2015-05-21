@@ -198,8 +198,13 @@ GUI.prototype.addEventsListeners = function(){
 			scope.miniDiapoResto.stop();
 			
 			if(event.target.id == "film"){
-				scope.loadSecondaryContent("contents/resto/panel-secondary.php",{id:event.target.id});	
+				scope.loadSecondaryContent("contents/resto/panel-secondary.php",{id:event.target.id});
+				scope.hideBackgroundImage();
+				scope.miniDiapoResto.goTo(5);
+				scope.miniDiapoResto.show();
+				
 			}else{
+				scope.closePanel($('#panel-secondary'));
 				scope.miniDiapoResto.hide();
 				scope.showBackgroundImage(event.target.id);
 			}
@@ -372,7 +377,7 @@ GUI.prototype.closePanel = function(element){
 	
 	element.fadeOut(this.EASING_TIME);	
 	
-	if(element.selector == "#panel-secondary" && this.currentMode == this.modes.resto)
+	if(element.selector == "#panel-secondary" && $( "#video-player" ).length)
 		this.stopVideo();
 }
 
@@ -403,6 +408,12 @@ GUI.prototype.loadPrimaryContent = function(url){
 		$("#panel-primary").addClass("panel-resto");	
 	}else{
 		$("#panel-primary").removeClass("panel-resto");
+	}
+	
+	if(this.currentMode == this.modes.ipad){
+		$("#panel-primary").addClass("panel-600");	
+	}else{
+		$("#panel-primary").removeClass("panel-600");
 	}
 	
 	var scope = this;

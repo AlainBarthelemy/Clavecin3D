@@ -47,3 +47,13 @@ MiniDiapo.prototype.nextDiapo = function(){
 	if(this.currentIndex > this.diapos.length - 1)
 		this.currentIndex = 0;
 }
+MiniDiapo.prototype.goTo = function(index){
+	if(index > this.diapos.length - 1)
+		index = 0;
+	
+	$($(this.id+" img")[this.currentIndex]).addClass("diap-hidden");
+	$($(this.id+" img")[index]).removeClass("diap-hidden");
+	
+	this.currentIndex = index;
+	
+}

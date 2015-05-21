@@ -14,8 +14,8 @@ var NEAR = 1;
 var FAR = 500;
 var cameraControls;
 
-var SNAP_TIME = 20*1000;
-var RELOAD_TIME = 10*60*1000;
+var SNAP_TIME = 16*60*1000 + 30*1000; //16m30s
+var RELOAD_TIME = 30*60*1000; // 30min
 
 
 var windowHalfX = window.innerWidth / 2;
@@ -631,9 +631,12 @@ function getMeshIndex(meshid){
 	
 }
 
+// we externalize idleTime so we can set it from other objects (dirty patch)
+var idleTime = 0;
+
 function haveaNapIfnoSnap(){
 	
-	var idleTime = 0;
+	//var idleTime = 0;
 	var dosing = false;
 	var intervalHandle = window.setInterval(function(){
 		idleTime +=1000;
@@ -644,6 +647,7 @@ function haveaNapIfnoSnap(){
 			location.reload();
 		//else if(idleTime < SNAP_TIME && dosing)
 			//wakeUp();
+		//console.log(idleTime);
 	},1000);
 	
 	window.onmousemove = function (e) {

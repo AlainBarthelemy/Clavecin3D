@@ -99,6 +99,21 @@
     <script src="js/idle-timer.min.js"></script>
     <script src="js/navigate.js"></script>
     <script src="js/jgestures.min.js"></script>
+    
+    <!-- AVOID MAIN APP GO TO SLEEP -->
+    <script type="text/javascript">
+		window.onmousemove = function (e) {
+			parent.idleTime = 0;
+		};
+		window.ontouchmove = function (e) {
+			parent.idleTime = 0;
+		};
+		window.ontouchstart = function (e) {
+			parent.idleTime = 0;
+		};
+    
+    </script>
+    
 
   </body>
 </html>

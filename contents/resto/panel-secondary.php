@@ -8,5 +8,5 @@
 	</h3>
   </div>
   <div class="panel-body secondary-full-img">
-  	<video id="video-player" src="contents/resto/LAQUE_1.mp4" width="1024" autoplay controls>
+  	<video id="video-player" src="contents/resto/LAQUE_1_1024.mp4" width="1024" autoplay controls>
   </div>
