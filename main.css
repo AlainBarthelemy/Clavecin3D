@@ -395,16 +395,25 @@ body{
 	
 }
 .bck-img{
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	left: 0;
 	width: 100%;	
-	/*display:none;*/
-	transition: opacity 1s ease-in-out;
-	opacity:0;
+	display:none;
+	/*transition: opacity 1s ease-in-out;*/
+	/*opacity:0;*/
+}
+#ipad-img{
+	/*position: absolute;*/
+	top: 0;
+	left: 0;
+	width: 100%;	
+	display:none;
+	/*transition: opacity 1s ease-in-out;*/
+	/*opacity:0;*/
 }
 .bck-shown{
-	opacity:1;	
+	/*opacity:1;*/	
 }
 
 .miniDiapo{

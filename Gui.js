@@ -22,6 +22,12 @@ function GUI(){
 		none:"none"
 	};
 	
+	this.controlsModes = {
+		threeD:"threeD",
+		bck:"bck",
+		none:"none"
+	}
+	
 	this.diapos = {
 		qqc:[
 			"contents/qqc/diapo/fondpanneaux1.jpg",
@@ -40,7 +46,9 @@ function GUI(){
 			"contents/resto/diapo/fondpanneaux6.jpg",
 		]
 	}
+	
 	this.currentMode = this.modes.none;
+	this.currentControlsMode = this.controlsModes.threeD;
 	this.EASING_TIME = 300;
 	
 	
@@ -65,6 +73,13 @@ function GUI(){
 		//scope.changeActiveDDBtn($('#info-dd-btn'));
 		//scope.loadPrimaryContent("contents/info/content.html");
 		
+		$(".bck-img").panzoom({
+			increment: 0.3,
+			contain: 'invert',
+			minScale: 1,
+			maxScale: 5,
+			transition: true,
+		});
 	});
 }
 
@@ -197,6 +212,8 @@ GUI.prototype.addEventsListeners = function(){
 			$(this).addClass("link-selected");
 			scope.miniDiapoResto.stop();
 			
+			scope.resetBckPosition();
+			
 			if(event.target.id == "film"){
 				scope.loadSecondaryContent("contents/resto/panel-secondary.php",{id:event.target.id});
 				scope.hideBackgroundImage();
@@ -220,6 +237,9 @@ GUI.prototype.addEventsListeners = function(){
 			$(this).addClass("link-selected");
 			scope.miniDiapoQqc.stop();
 			scope.miniDiapoQqc.hide();
+			
+			scope.resetBckPosition();
+			
 			scope.showBackgroundImage(event.target.id);
 		}
 	});
@@ -234,10 +254,17 @@ GUI.prototype.addEventsListeners = function(){
 	});
 	
 	$('#zoom-in-btn').click(function(){
-		scope.emitEvent(scope.events.zoomIn);
+		if(scope.currentMode == scope.modes.qqc || scope.currentMode == scope.modes.resto)
+			$(".bck-img").panzoom("zoom");
+		else
+			scope.emitEvent(scope.events.zoomIn);
+		
 	});
 	$('#zoom-out-btn').click(function(){
-		scope.emitEvent(scope.events.zoomOut);
+		if(scope.currentMode == scope.modes.qqc || scope.currentMode == scope.modes.resto)
+			scope.emitEvent(scope.events.zoomOut);
+		else
+			$(".bck-img").panzoom("zoom",true);
 	});
 	$('#move-btn').click(function(){
 	
@@ -287,10 +314,12 @@ GUI.prototype.changeMode = function(newMode){
 		this.miniDiapoResto.hide();
 		this.miniDiapoResto.stop();
 		this.hideBackgroundImage();	
+		this.resetBckPosition();
 	}else if(this.currentMode == this.modes.qqc){
 		this.miniDiapoQqc.hide();
 		this.miniDiapoQqc.stop();
 		this.hideBackgroundImage();	
+		this.resetBckPosition();
 	}else if(this.currentMode == this.modes.ipad){
 		this.hideBackgroundImage();	
 	}
@@ -298,6 +327,7 @@ GUI.prototype.changeMode = function(newMode){
 	switch(newMode){
 	 	case this.modes.tech:
 	 			this.currentMode = this.modes.tech;
+	 			this.changeControlsMode(this.controlsModes.threeD);
 	 			this.changeActiveDDBtn($('#technique-dd-btn'));
 				this.loadPrimaryContent("contents/technique/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.tech});
@@ -306,6 +336,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.elre:
 				this.currentMode = this.modes.elre;
+				this.changeControlsMode(this.controlsModes.threeD);
 				this.changeActiveDDBtn($('#elre-dd-btn'));
 				this.loadPrimaryContent("contents/elre/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.elre});
@@ -314,6 +345,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.histo:
 				this.currentMode = this.modes.histo;
+				this.changeControlsMode(this.controlsModes.threeD);
 				this.changeActiveDDBtn($('#histo-dd-btn'));
 				this.loadPrimaryContent("contents/histo/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.histo});
@@ -322,6 +354,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.resto:
 				this.currentMode = this.modes.resto;
+				this.changeControlsMode(this.controlsModes.bck);
 				this.changeActiveDDBtn($('#resto-dd-btn'));
 				this.loadPrimaryContent("contents/resto/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.resto});
@@ -332,6 +365,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.qqc:
 				this.currentMode = this.modes.qqc;
+				this.changeControlsMode(this.controlsModes.bck);
 				this.changeActiveDDBtn($('#qqc-dd-btn'));
 				this.loadPrimaryContent("contents/qqc/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.qqc});
@@ -342,6 +376,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.ipad:
 				this.currentMode = this.modes.ipad;
+				this.changeControlsMode(this.controlsModes.none);
 				this.changeActiveDDBtn($('#ipad-dd-btn'));
 				this.loadPrimaryContent("contents/ipad/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.ipad});
@@ -351,7 +386,8 @@ GUI.prototype.changeMode = function(newMode){
 				$("#canvas-container").hide();
 			break;
 		case this.modes.info:
-				this.currentMode = this.modes.histo;
+				this.currentMode = this.modes.info;
+				this.changeControlsMode(this.controlsModes.threeD);
 				this.changeActiveDDBtn($('#info-dd-btn'));
 				this.loadPrimaryContent("contents/info/content.html");
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.info});
@@ -360,6 +396,7 @@ GUI.prototype.changeMode = function(newMode){
 			break;
 		case this.modes.none:
 				this.currentMode = this.modes.none;
+				this.changeControlsMode(this.controlsModes.threeD);
 				this.deactivateAllDDBtn();
 				this.emitEvent(this.events.changeMode,{newMode:this.modes.none});
 				
@@ -371,6 +408,48 @@ GUI.prototype.changeMode = function(newMode){
 		
 	}
 	
+}
+
+GUI.prototype.changeControlsMode = function(newMode){
+	
+	switch(newMode){
+		
+	case this.controlsModes.threeD:
+		
+		$('.btn-group-vertical').show();
+		
+		$('#rotate-btn').show();
+		
+		$('#move-btn').removeClass("btn-primary");
+		$('#move-btn').addClass("btn-default");
+		$('#rotate-btn').addClass("btn-primary");
+		$('#rotate-btn').removeClass("btn-default");
+		
+		this.emitEvent(this.events.setRotateMode);
+		
+	break;
+	case this.controlsModes.bck:
+		
+		$('.btn-group-vertical').show();
+		
+		$('#rotate-btn').hide();
+		
+		$('#move-btn').addClass("btn-primary");
+		$('#move-btn').removeClass("btn-default");
+		$('#rotate-btn').removeClass("btn-primary");
+		$('#rotate-btn').addClass("btn-default");
+	
+	break;
+	case this.controlsModes.none:
+	
+		$('.btn-group-vertical').hide();
+	
+	break;
+		
+	default:
+		console.log("unknown controls mode");
+	break;
+	}
 }
 
 GUI.prototype.closePanel = function(element){
@@ -520,14 +599,17 @@ GUI.prototype.showBackgroundImage = function(id){
 	$("#"+id+"-img").removeClass("hidden");*/
 	
 	
-	$(".bck-img").removeClass("bck-shown");
-	$("#"+id+"-img").addClass("bck-shown");
+/*	$(".bck-img").removeClass("bck-shown");
+	$("#"+id+"-img").addClass("bck-shown");*/
+	$(".bck-img").hide();
+	$("#"+id+"-img").fadeIn(500);
 	
 	$("#bck-img-container").fadeIn();
 }
 GUI.prototype.hideBackgroundImage = function(){
-	//$(".resto-img").addClass("hidden");
-	$(".bck-img").removeClass("bck-shown");
+	
+	/*$(".bck-img").removeClass("bck-shown");*/
+	$(".bck-img").hide();
 	$("#bck-img-container").hide();
 }
 
@@ -570,6 +652,9 @@ GUI.prototype.resetDR = function(){
 		case this.modes.histo:
 			$("#panel-secondary").draggable().resizable(resizableOptions);
 			break;
+		case this.modes.qqc:
+		case this.modes.resto:
+		case this.modes.ipad:
 		case this.modes.none:
 			break;
 		default:
@@ -630,6 +715,11 @@ GUI.prototype.closeMenu = function(){
 GUI.prototype.stopVideo = function(){
 	$("#video-player")[0].pause();
 	$("#video-player")[0].seekable.start(0);
+}
+
+GUI.prototype.resetBckPosition = function(){
+	$(".bck-img").panzoom("resetZoom");	
+	$(".bck-img").panzoom("resetPan");	
 }
 
 var lastDistance = null ;
